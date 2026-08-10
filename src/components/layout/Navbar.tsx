@@ -65,13 +65,13 @@ export function Navbar() {
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
         transparent
           ? 'border-b border-transparent bg-transparent'
-          : 'border-b border-stone-200/80 bg-white/95 shadow-sm backdrop-blur-md'
+          : 'border-b border-white/10 bg-header shadow-sm'
       )}
     >
       <div className="mx-auto max-w-7xl pl-5 pr-4 md:pl-12 md:pr-10">
         <div className={cn('flex w-full items-center', HEADER_HEIGHT_CLASS)}>
           <Link href="/" className="relative z-10 flex shrink-0 items-center py-2 md:py-2.5">
-            <SiteLogo priority tone={transparent ? 'light' : 'dark'} />
+            <SiteLogo priority tone="light" />
           </Link>
 
           <div className="ml-auto hidden shrink-0 items-center gap-8 self-center md:flex">
@@ -90,12 +90,8 @@ export function Navbar() {
                         navLinkClass,
                         'gap-1',
                         pathname === link.href || servicesOpen
-                          ? transparent
-                            ? 'text-white'
-                            : 'text-stone-900'
-                          : transparent
-                            ? 'text-stone-200 hover:text-white'
-                            : 'text-stone-500 hover:text-stone-900'
+                          ? 'text-white'
+                          : 'text-white/70 hover:text-white'
                       )}
                     >
                       {link.label}
@@ -163,12 +159,8 @@ export function Navbar() {
                     className={cn(
                       navLinkClass,
                       pathname === link.href
-                        ? transparent
-                          ? 'text-white'
-                          : 'text-stone-900'
-                        : transparent
-                          ? 'text-stone-200 hover:text-white'
-                          : 'text-stone-500 hover:text-stone-900'
+                        ? 'text-white'
+                        : 'text-white/70 hover:text-white'
                     )}
                   >
                     {link.label}
@@ -180,41 +172,35 @@ export function Navbar() {
             <ValoracionGratuitaModal
               triggerLabel="Valoración gratuita"
               triggerClassName={cn(
-                'inline-flex shrink-0 whitespace-nowrap rounded-sm px-5 py-2.5 text-xs font-light uppercase tracking-[0.12em]',
+                'inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-sm px-5 py-2.5 text-xs font-light uppercase tracking-[0.12em] transition-colors duration-200',
                 transparent
-                  ? 'inline-flex items-center justify-center border border-white/70 text-white transition-colors duration-200 hover:bg-white hover:text-ink'
-                  : 'btn-primary'
+                  ? 'border border-white/70 text-white hover:bg-white hover:text-header'
+                  : 'border border-gold/80 bg-gold text-white hover:bg-gold-dark'
               )}
             />
           </div>
 
           <button
-            className={cn(
-              'ml-auto p-2 transition-colors md:hidden',
-              transparent ? 'text-white' : 'text-stone-600'
-            )}
+            className="ml-auto p-2 text-white transition-colors md:hidden"
             onClick={() => setOpen(!open)}
             aria-label="Menu"
           >
             <div className="w-5 space-y-1.5">
               <span
                 className={cn(
-                  'block h-px transition-all duration-300',
-                  transparent ? 'bg-white' : 'bg-stone-900',
+                  'block h-px bg-white transition-all duration-300',
                   open && 'translate-y-2 rotate-45'
                 )}
               />
               <span
                 className={cn(
-                  'block h-px transition-all duration-300',
-                  transparent ? 'bg-white' : 'bg-stone-900',
+                  'block h-px bg-white transition-all duration-300',
                   open && 'opacity-0'
                 )}
               />
               <span
                 className={cn(
-                  'block h-px transition-all duration-300',
-                  transparent ? 'bg-white' : 'bg-stone-900',
+                  'block h-px bg-white transition-all duration-300',
                   open && '-translate-y-2 -rotate-45'
                 )}
               />
@@ -224,13 +210,13 @@ export function Navbar() {
       </div>
 
       {open && (
-        <div className="space-y-4 border-t border-stone-100 bg-white px-6 py-6 md:hidden">
+        <div className="space-y-4 border-t border-white/10 bg-header px-6 py-6 md:hidden">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="block py-1 text-sm font-light text-stone-600 hover:text-stone-900"
+              className="block py-1 text-sm font-light text-white/80 hover:text-white"
             >
               {link.label}
             </Link>

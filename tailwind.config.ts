@@ -17,20 +17,21 @@ const config: Config = {
         stone: {
           950: '#0c0a09',
         },
-        ink: '#1A2421',
+        ink: '#2E301F',
+        header: '#2E301F',
         sand: {
           50: '#F6F3F0',
           100: '#EDE8E1',
           200: '#DFD6C8',
         },
         brand: {
-          // Giara forest / gold aliases keep existing class names working
-          teal: '#1A2421',
-          'teal-light': '#2F3D38',
-          'teal-dark': '#121A18',
-          burgundy: '#1A2421',
-          'burgundy-light': '#2F3D38',
-          'burgundy-dark': '#121A18',
+          // Giara olive / gold aliases keep existing class names working
+          teal: '#2E301F',
+          'teal-light': '#3F4230',
+          'teal-dark': '#232518',
+          burgundy: '#2E301F',
+          'burgundy-light': '#3F4230',
+          'burgundy-dark': '#232518',
           red: '#C59458',
           'red-light': '#D4AE78',
           'red-dark': '#A67B42',

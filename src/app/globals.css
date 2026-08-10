@@ -3,16 +3,17 @@
 @tailwind utilities;
 
 :root {
-  --brand-burgundy: #1A2421;
-  --brand-burgundy-light: #2F3D38;
-  --brand-burgundy-dark: #121A18;
+  --brand-burgundy: #2E301F;
+  --brand-burgundy-light: #3F4230;
+  --brand-burgundy-dark: #232518;
   --brand-white: #ffffff;
   --brand-accent: #C59458;
   --gold: #C59458;
   --gold-light: #D4AE78;
   --gold-dark: #A67B42;
   --sand-50: #F6F3F0;
-  --ink: #1A2421;
+  --ink: #2E301F;
+  --header: #2E301F;
 }
 
 @layer base {
@@ -75,12 +76,12 @@
 
 .site-logo {
   display: block;
-  width: 100% !important;
-  height: 100% !important;
+  width: auto !important;
   max-width: 100%;
+  height: 100% !important;
   max-height: 100%;
-  object-fit: cover;
-  background: #000;
+  object-fit: contain;
+  background: transparent;
 }
 
 .site-logo--header,
