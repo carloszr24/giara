@@ -9,7 +9,7 @@ export const REVIEWS: Review[] = [
   {
     id: 1,
     name: 'Ana M.',
-    text: 'Trato cercano y profesional desde el primer contacto. Nos ayudaron a encontrar piso cerca de la playa y resolvieron todas las dudas del proceso.',
+    text: 'Trato cercano y profesional desde el primer contacto. Nos ayudaron a encontrar piso y resolvieron todas las dudas del proceso.',
   },
   {
     id: 2,
@@ -19,6 +19,6 @@ export const REVIEWS: Review[] = [
   {
     id: 3,
     name: 'Laura G.',
-    text: 'Vendimos nuestra vivienda en Tarifa con tranquilidad. Comunicación clara y seguimiento constante hasta la firma.',
+    text: 'Vendimos nuestra vivienda en Lleida con tranquilidad. Comunicación clara y seguimiento constante hasta la firma.',
   },
 ]

@@ -11,10 +11,7 @@ import {
 } from '@/data/admin-contacts'
 import { cn } from '@/lib/utils'
 
-const PROPERTY_LABELS: Record<string, string> = {
-  'piso-mar-rojo-tarifa': 'Piso Mar Rojo – Tarifa',
-  'triplex-trafalgar-tarifa': 'Dúplex/Triplex Trafalgar – Tarifa',
-}
+const PROPERTY_LABELS: Record<string, string> = {}
 
 function formatDate(iso: string) {
   return new Intl.DateTimeFormat('es-ES', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(iso))

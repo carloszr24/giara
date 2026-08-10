@@ -1,10 +1,10 @@
 import 'server-only'
 
 const NOMINATIM_URL = 'https://nominatim.openstreetmap.org/search'
-const USER_AGENT = 'FalconePropiedades/1.0 (https://falconepropiedades.com)'
+const USER_AGENT = 'GiaraInmobiliaria/1.0 (https://inmogiara.com)'
 
-/** Área Tarifa / costa de Cádiz — prioriza resultados cercanos sin limitar solo a esta zona */
-const TARIFA_VIEWBOX = '-5.70,36.08,-5.50,35.95'
+/** Área Lleida / Catalunya — prioriza resultados cercanos sin limitar solo a esta zona */
+const LLEIDA_VIEWBOX = '0.45,41.75,0.80,41.50'
 
 export type GeocodeResult = {
   latitude: number
@@ -133,7 +133,7 @@ export async function geocodeAddress(query: string): Promise<GeocodeResult | nul
     limit: '1',
     countrycodes: 'es',
     addressdetails: '1',
-    viewbox: TARIFA_VIEWBOX,
+    viewbox: LLEIDA_VIEWBOX,
     bounded: '0',
   })
 
@@ -167,7 +167,7 @@ export async function searchAddressSuggestions(
     countrycodes: 'es',
     addressdetails: '1',
     dedupe: '1',
-    viewbox: TARIFA_VIEWBOX,
+    viewbox: LLEIDA_VIEWBOX,
     bounded: '0',
   })
 

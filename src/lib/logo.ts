@@ -1,16 +1,16 @@
-export const LOGO_SRC = '/images/falcone.png'
-export const LOGO_WHITE_SRC = '/images/falcone.png'
+export const LOGO_SRC = '/images/giara.png'
+export const LOGO_WHITE_SRC = '/images/giara.png'
 
-/** Intrinsic dimensions — falcone.png (wordmark, transparent). */
+/** Intrinsic dimensions — giara.png (gold mark on black, square). */
 export const LOGO_RENDER = {
-  width: 3200,
-  height: 832,
+  width: 1254,
+  height: 1254,
 }
 
-/** Slightly smaller logo inside a taller, roomier header bar. */
-export const LOGO_HEADER_HEIGHT_CLASS = 'h-[1.5rem] md:h-[1.7rem]'
+/** Square mark sized for the premium header bar. */
+export const LOGO_HEADER_HEIGHT_CLASS = 'h-11 md:h-12'
 
-export const LOGO_FOOTER_HEIGHT_CLASS = 'h-14 md:h-16'
+export const LOGO_FOOTER_HEIGHT_CLASS = 'h-16 md:h-[4.5rem]'
 
 export const LOGO_IMAGE_CLASS = 'site-logo site-logo--header'
 

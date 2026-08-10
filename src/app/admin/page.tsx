@@ -526,7 +526,7 @@ export default function AdminPage() {
               <div>
                 <label className="text-xs text-stone-500 block mb-1.5">Ubicación *</label>
                 <input name="location" value={form.location} onChange={handleChange} required
-                  placeholder="Ej: Mar Rojo – Tarifa, Cádiz"
+                  placeholder="Ej: Gran Passeig de Ronda – Lleida"
                   className="w-full border border-stone-200 px-3 py-2.5 text-sm focus:outline-none focus:border-stone-900" />
               </div>
 

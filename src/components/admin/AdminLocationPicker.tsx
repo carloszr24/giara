@@ -136,7 +136,7 @@ export function AdminLocationPicker({
           onBlur={() => {
             blurTimerRef.current = setTimeout(() => setSuggestOpen(false), 150)
           }}
-          placeholder="Ej: Urb. El Acebuche, Tarifa"
+          placeholder="Ej: Gran Passeig de Ronda, Lleida"
           autoComplete="off"
           className="w-full border border-stone-200 px-3 py-2.5 text-sm focus:outline-none focus:border-stone-900"
         />
@@ -166,7 +166,7 @@ export function AdminLocationPicker({
             ))}
             {!suggestLoading && suggestions.length === 0 && address.trim().length >= 3 && (
               <p className="px-3 py-2.5 text-xs text-stone-400">
-                Sin resultados. Pruebe con calle y pueblo, por ejemplo: Calle Trafalgar, Tarifa
+                Sin resultados. Pruebe con calle y ciudad, por ejemplo: Gran Passeig de Ronda, Lleida
               </p>
             )}
           </div>

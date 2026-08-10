@@ -5,10 +5,7 @@ import { createPortal } from 'react-dom'
 import { ADMIN_VISITS, VISIT_CHANNEL_LABELS, type VisitChannel } from '@/data/admin-visits'
 import { cn } from '@/lib/utils'
 
-const PROPERTY_LABELS: Record<string, string> = {
-  'piso-mar-rojo-tarifa': 'Piso Mar Rojo – Tarifa',
-  'triplex-trafalgar-tarifa': 'Dúplex/Triplex Trafalgar – Tarifa',
-}
+const PROPERTY_LABELS: Record<string, string> = {}
 
 function formatDate(iso: string) {
   return new Intl.DateTimeFormat('es-ES', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(iso))

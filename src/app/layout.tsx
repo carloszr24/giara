@@ -1,27 +1,27 @@
 import type { Metadata } from 'next'
-import { Fraunces, Manrope } from 'next/font/google'
+import { Cormorant_Garamond, DM_Sans } from 'next/font/google'
 import './globals.css'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 
-const sans = Manrope({
+const sans = DM_Sans({
   subsets: ['latin'],
   variable: '--font-body',
   weight: ['400', '500', '600', '700'],
 })
 
-const display = Fraunces({
+const display = Cormorant_Garamond({
   subsets: ['latin'],
   variable: '--font-display',
-  weight: ['400', '500', '600'],
+  weight: ['400', '500', '600', '700'],
 })
 
 export const metadata: Metadata = {
-  title: 'Falcone Propiedades | Inmobiliaria en Tarifa',
+  title: 'Giara Inmobiliaria | Lleida',
   description:
-    'Compra y venta de viviendas en Tarifa y Cádiz. Falcone Propiedades: trato cercano, asesoramiento claro y propiedades cerca del mar.',
+    'Marketing inmobiliario personalizado para propiedades excepcionales. Compra y venta de viviendas en Lleida con Giara Inmobiliaria.',
   keywords:
-    'falcone propiedades, inmobiliaria tarifa, comprar piso tarifa, venta vivienda cadiz, playa de los lances, agencia inmobiliaria tarifa',
+    'giara inmobiliaria, inmobiliaria lleida, comprar piso lleida, venta vivienda lleida, inmogiara, agencia inmobiliaria lleida',
 }
 
 export default function RootLayout({

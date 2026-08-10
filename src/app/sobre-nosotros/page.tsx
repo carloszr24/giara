@@ -63,7 +63,7 @@ function ServiceCard({
   icon?: typeof HomeIcon
 }) {
   return (
-    <div className="group border border-stone-200 bg-white p-8 transition-colors duration-300 hover:border-brand-burgundy/30">
+    <div className="group border border-stone-200 bg-white p-8 transition-colors duration-300 hover:border-gold/40">
       {service.partnerLogo ? (
         <div className="mb-6 flex h-12 items-center">
           <Image
@@ -75,11 +75,11 @@ function ServiceCard({
           />
         </div>
       ) : Icon ? (
-        <span className="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-sm border border-stone-200 text-stone-600 transition-colors group-hover:border-brand-burgundy/30 group-hover:text-brand-burgundy">
+        <span className="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-sm border border-stone-200 text-stone-600 transition-colors group-hover:border-gold/40 group-hover:text-gold-dark">
           <Icon />
         </span>
       ) : null}
-      <h3 className="mb-3 font-display text-xl font-light text-stone-900 transition-colors group-hover:text-brand-burgundy">
+      <h3 className="mb-3 font-display text-xl font-light text-stone-900 transition-colors group-hover:text-gold-dark">
         {service.title}
       </h3>
       <p className="text-sm font-light leading-relaxed text-stone-500">{service.desc}</p>
@@ -129,15 +129,24 @@ export default function SobreNosotrosPage() {
           <div className="my-14 h-px bg-stone-200" />
 
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
-            <div className="relative aspect-[4/3] overflow-hidden bg-stone-100">
-              <div className="absolute left-1/2 top-[52%] h-[128%] w-[128%] -translate-x-1/2 -translate-y-1/2">
-                <Image
-                  src="/images/tarifa-sobre-nosotros.png"
-                  alt="Vista de Tarifa"
-                  fill
-                  className="object-cover object-center"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
+            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-ink">
+              <div
+                className="absolute inset-0"
+                style={{
+                  background: `
+                    radial-gradient(ellipse 80% 70% at 70% 30%, rgba(197,148,88,0.35), transparent 55%),
+                    linear-gradient(145deg, #121A18, #1A2421 50%, #2F3D38)
+                  `,
+                }}
+                aria-hidden="true"
+              />
+              <div className="absolute inset-0 flex flex-col items-start justify-end p-8 md:p-10">
+                <p className="text-[0.65rem] font-medium uppercase tracking-[0.28em] text-gold-light">
+                  Lleida
+                </p>
+                <p className="mt-3 max-w-xs font-display text-3xl font-medium leading-snug text-white md:text-4xl">
+                  Marketing inmobiliario con carácter propio
+                </p>
               </div>
             </div>
 
@@ -147,19 +156,17 @@ export default function SobreNosotrosPage() {
               </h2>
               <div className="mt-6 space-y-5 text-sm font-light leading-relaxed text-stone-600 md:text-base">
                 <p>
-                  Una tradición familiar que se ha transmitido de generación en generación, cimentada en
-                  valores profundos y en un genuino compromiso con las personas. Desde nuestros inicios,
-                  hemos entendido que el patrimonio inmobiliario no solo representa un activo material, sino
-                  también un espacio donde se construyen sueños, memorias y proyectos de vida.
+                  En Giara entendemos que el patrimonio inmobiliario no solo representa un activo
+                  material, sino también un espacio donde se construyen sueños, memorias y proyectos
+                  de vida.
                 </p>
                 <p>
-                  Nuestra principal motivación es ayudar. Ya sea facilitando la compra o venta de una
-                  propiedad, asesorando en inversiones o encontrando el hogar ideal. Creemos que el verdadero
-                  valor de nuestro trabajo radica en la capacidad de comprender las inquietudes de nuestros
-                  clientes y acompañarlos en cada paso, con honestidad, dedicación y un trato cercano que
-                  refleje el espíritu de servicio que nos define.
+                  Nuestra principal motivación es ayudar: facilitando la compra o venta de una
+                  propiedad, asesorando en inversiones o encontrando el hogar ideal. Creemos que el
+                  verdadero valor de nuestro trabajo radica en comprender las inquietudes de nuestros
+                  clientes y acompañarlos en cada paso, con honestidad y un trato cercano.
                 </p>
-                <p>Un legado de confianza, compromiso y pasión por el sector inmobiliario.</p>
+                <p>Confianza, compromiso y pasión por el sector inmobiliario en Lleida.</p>
               </div>
             </div>
           </div>
@@ -170,7 +177,7 @@ export default function SobreNosotrosPage() {
         <div className="mx-auto max-w-7xl space-y-20">
           <div>
             <div className="mb-12 max-w-2xl">
-              <p className="mb-3 text-[10px] font-light uppercase tracking-[0.22em] text-brand-burgundy">
+              <p className="mb-3 text-[10px] font-light uppercase tracking-[0.22em] text-gold">
                 Más que una inmobiliaria
               </p>
               <h2 className="font-display text-3xl font-light text-stone-900 md:text-4xl">
@@ -191,7 +198,7 @@ export default function SobreNosotrosPage() {
 
           <div>
             <div className="mb-10 max-w-2xl">
-              <p className="mb-3 text-[10px] font-light uppercase tracking-[0.22em] text-brand-burgundy">
+              <p className="mb-3 text-[10px] font-light uppercase tracking-[0.22em] text-gold">
                 Cómo trabajamos
               </p>
               <h2 className="font-display text-2xl font-light text-stone-900 md:text-3xl">
@@ -224,7 +231,7 @@ export default function SobreNosotrosPage() {
           </blockquote>
 
           <div className="mt-20">
-            <p className="mb-3 text-[10px] font-light uppercase tracking-[0.22em] text-brand-burgundy">El equipo</p>
+            <p className="mb-3 text-[10px] font-light uppercase tracking-[0.22em] text-gold">El equipo</p>
             <h2 className="font-display text-3xl font-light text-stone-900 md:text-4xl">
               Comprometidos a darle la solución que busca
             </h2>
@@ -256,7 +263,7 @@ export default function SobreNosotrosPage() {
             </div>
             <Link
               href="/contacto"
-              className="inline-flex shrink-0 items-center gap-2 border border-brand-burgundy px-8 py-3.5 text-[10px] font-light uppercase tracking-[0.14em] text-brand-burgundy transition-colors hover:bg-brand-burgundy hover:text-white"
+              className="inline-flex shrink-0 items-center gap-2 border border-gold px-8 py-3.5 text-[10px] font-light uppercase tracking-[0.14em] text-gold-dark transition-colors hover:bg-gold hover:text-white"
             >
               Escríbanos
               <span aria-hidden="true">→</span>

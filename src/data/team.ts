@@ -10,17 +10,17 @@ export type TeamMember = {
 
 export const TEAM_MEMBERS: TeamMember[] = [
   {
-    id: 'andres-falcone',
-    name: 'Andrés Falcone',
-    role: 'Director',
+    id: 'equipo-giara',
+    name: 'Equipo Giara',
+    role: 'Asesoramiento inmobiliario',
     tenure: null,
-    initials: 'AF',
+    initials: 'GI',
     photo: null,
   },
 ]
 
 export const TEAM_QUOTE = {
-  text: 'Conocemos Tarifa y su entorno. Escuchamos primero, informamos con claridad y acompañamos cada paso de la compraventa.',
-  attribution: 'Andrés Falcone',
-  role: 'Director',
+  text: 'Cada vivienda cuenta una historia. Nuestro trabajo es contarla bien y encontrar a quien la valore.',
+  attribution: 'Giara Inmobiliaria',
+  role: 'Lleida',
 } as const

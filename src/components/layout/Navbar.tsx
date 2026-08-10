@@ -132,7 +132,7 @@ export function Navbar() {
                         <div className="mt-4 border-t border-stone-100 pt-4 text-center">
                           <a
                             href={phoneHref}
-                            className="inline-flex items-center justify-center gap-1 text-sm font-light text-brand-burgundy transition-colors hover:text-brand-burgundy-dark"
+                            className="inline-flex items-center justify-center gap-1 text-sm font-light text-gold-dark transition-colors hover:text-ink"
                           >
                             Llámenos y le ofreceremos la solución que busca →
                           </a>
@@ -159,7 +159,7 @@ export function Navbar() {
 
             <ValoracionGratuitaModal
               triggerLabel="Valoración gratuita"
-              triggerClassName="inline-flex h-9 shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-brand-burgundy px-4 text-[0.64rem] font-medium uppercase tracking-[0.12em] text-white shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-burgundy-dark hover:shadow-lift"
+              triggerClassName="inline-flex h-9 shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-gold px-4 text-[0.64rem] font-medium uppercase tracking-[0.12em] text-white shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:bg-gold-dark hover:shadow-lift"
             />
           </div>
 

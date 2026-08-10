@@ -2,22 +2,24 @@ import type { Metadata } from 'next'
 import { AdminNav } from '@/components/admin/AdminNav'
 
 export const metadata: Metadata = {
-  title: 'Panel Admin | Falcone Propiedades',
+  title: 'Panel Admin | Giara Inmobiliaria',
   robots: { index: false, follow: false },
 }
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen bg-sand-50">
-      <header className="bg-brand-burgundy text-white px-6 py-4 flex items-center justify-between">
+      <header className="flex items-center justify-between bg-ink px-6 py-4 text-white">
         <div className="flex items-center">
-          <span className="font-display text-lg font-medium">
-            Falcone
-            <span className="text-white/70 text-xs ml-2 font-sans font-medium tracking-[0.18em] uppercase">Admin</span>
+          <span className="font-display text-lg font-medium tracking-[0.04em]">
+            GIARA
+            <span className="ml-2 font-sans text-xs font-medium uppercase tracking-[0.18em] text-gold">
+              Admin
+            </span>
           </span>
           <AdminNav />
         </div>
-        <a href="/" className="text-xs text-white/70 hover:text-white transition-colors">
+        <a href="/" className="text-xs text-white/70 transition-colors hover:text-white">
           ← Ver web
         </a>
       </header>

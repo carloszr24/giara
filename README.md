@@ -1,8 +1,8 @@
-# Falcone Propiedades — Web
+# Giara Inmobiliaria — Web
 
 Next.js + TypeScript + Tailwind. **Datos locales** en `data/properties.json` y `data/leads.json` (sin base de datos externa).
 
-Inmobiliaria en Tarifa (Cádiz).
+Inmobiliaria en Lleida.
 
 ---
 
@@ -38,4 +38,4 @@ También puede gestionarse desde `/admin` en local (escribe en los mismos archiv
 
 - Next.js 14 (App Router)
 - Tailwind CSS
-- Almacenamiento local (JSON + carpeta `public/`)
+- Leaflet (mapas)

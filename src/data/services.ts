@@ -9,15 +9,15 @@ export type ServiceItem = {
 export const PRIMARY_SERVICES: ServiceItem[] = [
   {
     title: 'Financiación 100%',
-    desc: 'Le ayudamos a estudiar y gestionar opciones de financiación adaptadas a su operación, con un acompañamiento claro en cada fase.',
+    desc: 'Te ayudamos a estudiar y gestionar opciones de financiación adaptadas a tu operación, con un acompañamiento claro en cada fase.',
   },
   {
     title: 'Plusvalía',
-    desc: 'Asesoramiento y gestión en materia de plusvalía municipal para que conozca sus obligaciones y plazos con total transparencia.',
+    desc: 'Asesoramiento y gestión en materia de plusvalía municipal para que conozcas tus obligaciones y plazos con total transparencia.',
   },
   {
     title: 'Cambio de titularidad de luz sin coste',
-    desc: 'Tramitamos el cambio de titularidad del suministro eléctrico sin coste adicional, para que pueda entrar en su vivienda con menos preocupaciones.',
+    desc: 'Tramitamos el cambio de titularidad del suministro eléctrico sin coste adicional, para que puedas entrar en tu vivienda con menos preocupaciones.',
   },
   {
     title: 'Asesoramiento jurídico',
@@ -29,19 +29,19 @@ export const PRIMARY_SERVICES: ServiceItem[] = [
 export const HOME_EXTRA_SERVICES: ServiceItem[] = [
   {
     title: 'Asesoramiento',
-    desc: 'Al comprador: lo acompañaremos en todo el proceso, desde la búsqueda del inmueble que desea hasta la finalización de la compra, siempre asesorándolo en lo que necesite.',
+    desc: 'Al comprador: te acompañamos en todo el proceso, desde la búsqueda del inmueble hasta la finalización de la compra.',
   },
   {
     title: 'Propuesta de valor',
-    desc: 'La experiencia de las últimas operaciones realizadas y propiedades ofrecidas en la zona darán como resultado el valor estimado para su propiedad, así como las distintas posibilidades de ofrecimiento o usos posibles.',
+    desc: 'La experiencia de operaciones recientes y el conocimiento del mercado local dan como resultado una valoración realista de tu propiedad.',
   },
   {
     title: 'Tasación e informe',
-    desc: 'Al vendedor: su inmueble será valuado no solo teniendo en cuenta los parámetros tradicionales, sino también considerando su potencial.',
+    desc: 'Al vendedor: tu inmueble se valora no solo con parámetros tradicionales, sino también considerando su potencial.',
   },
   {
     title: 'Comunicación y marketing',
-    desc: 'Para brindar un servicio diferenciado a nuestros clientes, en el área de marketing y comunicación contamos con las últimas herramientas tecnológicas, de diseño y difusión disponibles en el mercado: websites, redes sociales y portales.',
+    desc: 'Marketing inmobiliario personalizado: diseño, difusión en redes y portales, y una narrativa clara para destacar tu propiedad.',
   },
 ]
 
@@ -49,7 +49,7 @@ export const HOME_EXTRA_SERVICES: ServiceItem[] = [
 export const SERVICE_ITEMS: ServiceItem[] = [
   {
     title: 'Compra y venta',
-    desc: 'Acompañamiento integral en operaciones de compraventa en Tarifa y la costa de Cádiz.',
+    desc: 'Acompañamiento integral en operaciones de compraventa en Lleida y alrededores.',
   },
   ...HOME_EXTRA_SERVICES,
   {

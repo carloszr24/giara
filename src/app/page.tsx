@@ -52,47 +52,64 @@ export default async function HomePage() {
 
   return (
     <>
-      <section className={cn('relative h-svh min-h-[32rem] flex flex-col items-center justify-center overflow-hidden pb-8 md:pb-10', HEADER_OFFSET_CLASS)}>
+      <section
+        className={cn(
+          'relative flex h-svh min-h-[34rem] flex-col items-center justify-center overflow-hidden pb-10 md:pb-12',
+          HEADER_OFFSET_CLASS
+        )}
+      >
         <div className="absolute inset-0">
           <HeroCarousel />
-          <div className="absolute inset-0 bg-gradient-to-b from-stone-900/40 via-brand-burgundy-dark/30 to-stone-950/55" />
         </div>
 
-        <div className="relative z-10 flex flex-1 w-full items-center justify-center px-4 min-[400px]:px-6 -translate-y-8 md:-translate-y-4">
-          <div className="text-center max-w-4xl mx-auto w-full">
-            <h1
-              className="font-display text-white [text-shadow:0_2px_12px_rgba(0,0,0,0.35)] text-balance text-[clamp(2rem,5.5vw+0.5rem,3.75rem)] leading-[1.14] mb-6 animate-fade-up font-light"
+        <div className="relative z-10 flex w-full flex-1 items-center justify-center px-5 min-[400px]:px-6">
+          <div className="mx-auto w-full max-w-3xl text-center">
+            <p
+              className="mb-5 text-[0.68rem] font-medium uppercase tracking-[0.32em] text-gold-light animate-fade-up"
               style={{ opacity: 0, animationFillMode: 'forwards' }}
             >
-              Compre o venda su vivienda
-              <span className="hidden md:inline"> </span>
-              <br className="md:hidden" aria-hidden="true" />
-              en <span className="text-sand-100 italic">Tarifa</span> con la tranquilidad que merece
+              Giara Inmobiliaria
+            </p>
+            <h1
+              className="font-display text-balance text-[clamp(2.4rem,6vw+0.4rem,4.25rem)] font-medium leading-[1.08] text-white mb-6 animate-fade-up"
+              style={{ opacity: 0, animationDelay: '0.08s', animationFillMode: 'forwards' }}
+            >
+              Propiedades excepcionales
+              <br className="hidden sm:block" />
+              {' '}en <span className="italic text-gold-light">Lleida</span>
             </h1>
             <p
-              className="text-stone-200/95 text-base sm:text-lg font-normal max-w-[min(100%,24rem)] sm:max-w-xl mx-auto mb-9 leading-relaxed text-pretty animate-fade-up"
-              style={{ animationDelay: '0.1s', opacity: 0, animationFillMode: 'forwards' }}
+              className="mx-auto mb-10 max-w-md text-pretty text-base font-normal leading-relaxed text-white/75 sm:text-lg animate-fade-up"
+              style={{ opacity: 0, animationDelay: '0.16s', animationFillMode: 'forwards' }}
             >
-              Un servicio adaptado a las necesidades de cada cliente.
+              Marketing inmobiliario personalizado. Te acompañamos en cada paso de la compra o venta.
             </p>
-            <HeroActions mapPoints={mapPoints} />
+            <div
+              className="animate-fade-up"
+              style={{ opacity: 0, animationDelay: '0.24s', animationFillMode: 'forwards' }}
+            >
+              <HeroActions mapPoints={mapPoints} />
+            </div>
           </div>
         </div>
 
         <ScrollHint />
       </section>
 
-      <section className="bg-brand-burgundy py-20 md:py-24 px-6 md:px-10">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-12 text-center">
-            <h2 className="font-display text-3xl text-white md:text-[2.35rem] font-light leading-snug">
-              Todo lo que necesita para operar con confianza
+      <section className="bg-ink px-6 py-20 md:px-10 md:py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-14 text-center">
+            <p className="mb-3 text-[0.65rem] font-medium uppercase tracking-[0.28em] text-gold">
+              Cómo te ayudamos
+            </p>
+            <h2 className="font-display text-3xl font-medium leading-snug text-white md:text-[2.5rem]">
+              Todo lo que necesitas, con claridad
             </h2>
-            <p className="mt-4 text-sm text-stone-200/80 max-w-2xl mx-auto leading-relaxed font-light">
-              Nuestra oficina se encuentra en Tarifa, Cádiz.
+            <p className="mx-auto mt-4 max-w-xl text-sm font-normal leading-relaxed text-white/65">
+              Oficina en Lleida. Un trato cercano y un proceso pensado para cada cliente.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
                 icon: HomeIcon,
@@ -102,12 +119,12 @@ export default async function HomePage() {
               {
                 icon: ScaleIcon,
                 title: 'Asesoramiento jurídico',
-                desc: 'Orientación en documentación, trámites y formalización con la máxima diligencia.',
+                desc: 'Orientación en documentación, trámites y formalización con diligencia.',
               },
               {
                 icon: BankIcon,
-                title: 'Financiación a su medida',
-                desc: 'Estudio personalizado de las opciones más adecuadas para su operación.',
+                title: 'Financiación a medida',
+                desc: 'Estudio personalizado de las opciones más adecuadas para tu operación.',
               },
               {
                 icon: ClipboardIcon,
@@ -115,26 +132,29 @@ export default async function HomePage() {
                 desc: 'Coordinación del proceso inmobiliario hasta la firma en notaría.',
               },
             ].map((item) => (
-              <div key={item.title} className="rounded-lg p-7 border border-white/15 bg-white/5 hover:bg-white/10 transition-colors duration-300">
-                <span className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/20 text-white/90">
+              <div
+                key={item.title}
+                className="rounded-2xl border border-white/10 bg-white/[0.03] p-7 transition-colors duration-300 hover:border-gold/35 hover:bg-white/[0.06]"
+              >
+                <span className="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-gold/30 text-gold">
                   <item.icon />
                 </span>
-                <h3 className="mb-2 font-display text-lg font-light text-white">{item.title}</h3>
-                <p className="text-sm leading-relaxed text-stone-200/85 font-light">{item.desc}</p>
+                <h3 className="mb-2 font-display text-xl font-medium text-white">{item.title}</h3>
+                <p className="text-sm font-normal leading-relaxed text-white/65">{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-24 px-6 md:px-10 max-w-7xl mx-auto">
+      <section className="mx-auto max-w-7xl px-6 py-24 md:px-10">
         {featured.length > 0 ? (
-          <div className="space-y-7">
+          <div className="space-y-8">
             <div className="relative min-h-10">
-              <h2 className="font-display text-4xl md:text-5xl leading-tight text-center font-light">
-                Nuevas <span className="text-brand-burgundy italic">oportunidades</span>
+              <h2 className="text-center font-display text-4xl font-medium leading-tight md:text-5xl">
+                Nuevas <span className="italic text-gold">oportunidades</span>
               </h2>
-              <div className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2">
+              <div className="absolute right-0 top-1/2 hidden -translate-y-1/2 md:flex">
                 <Link href="/propiedades" className="btn-outline text-[10px] shrink-0">
                   Ver todas →
                 </Link>
@@ -148,30 +168,49 @@ export default async function HomePage() {
             </div>
           </div>
         ) : (
-          <div className="text-center py-20 text-stone-400 font-light">
-            <p>Próximamente añadiremos propiedades destacadas.</p>
+          <div className="rounded-3xl border border-sand-200 bg-white px-8 py-16 text-center md:px-12">
+            <p className="mb-2 text-[0.65rem] font-medium uppercase tracking-[0.28em] text-gold">
+              Catálogo
+            </p>
+            <h2 className="font-display text-3xl font-medium text-ink md:text-4xl">
+              Pronto nuevas propiedades
+            </h2>
+            <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-stone-500">
+              Estamos preparando el catálogo de Giara. Mientras tanto, cuéntanos qué buscas y te avisamos.
+            </p>
+            <Link href="/contacto" className="btn-primary mt-8">
+              Hablar con el equipo
+            </Link>
           </div>
         )}
       </section>
 
-      <section className="bg-gradient-to-r from-brand-burgundy-dark via-brand-burgundy to-brand-burgundy-light py-24 px-6 md:px-10 text-center">
-        <div className="max-w-2xl mx-auto rounded-xl border border-white/20 bg-black/5 px-6 py-10 md:px-10 md:py-12 flex flex-col items-center text-center">
-          <h2 className="mb-5 font-display text-4xl font-light leading-tight text-white md:text-[2.75rem] text-center w-full">
-            ¿Desea encontrar<br />su próximo hogar?
+      <section className="relative overflow-hidden bg-ink px-6 py-24 md:px-10">
+        <div
+          className="pointer-events-none absolute inset-0 opacity-40"
+          style={{
+            background:
+              'radial-gradient(ellipse 70% 80% at 80% 20%, rgba(197,148,88,0.22), transparent 55%)',
+          }}
+          aria-hidden="true"
+        />
+        <div className="relative mx-auto max-w-2xl text-center">
+          <h2 className="mb-5 font-display text-4xl font-medium leading-tight text-white md:text-[2.75rem]">
+            ¿Buscas tu próximo hogar?
           </h2>
-          <p className="mb-10 text-base font-light leading-relaxed text-stone-100/90 text-center w-full max-w-lg mx-auto">
-            Cuéntenos qué necesita y prepararemos la estrategia más adecuada para usted.
+          <p className="mx-auto mb-10 max-w-lg text-base font-normal leading-relaxed text-white/70">
+            Cuéntanos qué necesitas y prepararemos la estrategia más adecuada para ti.
           </p>
-          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
             <Link
               href="/contacto"
-              className="inline-flex min-h-[3rem] items-center justify-center gap-1.5 rounded-sm border border-transparent bg-white px-10 py-3 text-xs font-light tracking-[0.06em] uppercase text-brand-burgundy hover:bg-stone-50 transition-colors duration-200"
+              className="inline-flex min-h-[3rem] items-center justify-center rounded-full bg-gold px-10 py-3 text-xs font-medium uppercase tracking-[0.08em] text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-gold-dark hover:shadow-soft"
             >
-              Hable con nuestro equipo
+              Hablar con el equipo
             </Link>
             <Link
               href="/propiedades"
-              className="inline-flex min-h-[3rem] items-center justify-center rounded-sm border border-white/80 px-10 py-3 text-xs font-light tracking-[0.06em] uppercase text-white hover:bg-white hover:text-brand-burgundy transition-colors duration-200"
+              className="inline-flex min-h-[3rem] items-center justify-center rounded-full border border-white/35 px-10 py-3 text-xs font-medium uppercase tracking-[0.08em] text-white transition-colors duration-200 hover:border-white hover:bg-white/5"
             >
               Ver propiedades
             </Link>

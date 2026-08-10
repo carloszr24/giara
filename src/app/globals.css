@@ -3,16 +3,16 @@
 @tailwind utilities;
 
 :root {
-  --brand-burgundy: #103f91;
-  --brand-burgundy-light: #2b63c6;
-  --brand-burgundy-dark: #0a2d6a;
+  --brand-burgundy: #1A2421;
+  --brand-burgundy-light: #2F3D38;
+  --brand-burgundy-dark: #121A18;
   --brand-white: #ffffff;
-  --brand-accent: #4f7fe0;
-  --gold: var(--brand-burgundy);
-  --gold-light: var(--brand-burgundy-light);
-  --gold-dark: var(--brand-burgundy-dark);
-  --sand-50: #f7f4ef;
-  --ink: #14212b;
+  --brand-accent: #C59458;
+  --gold: #C59458;
+  --gold-light: #D4AE78;
+  --gold-dark: #A67B42;
+  --sand-50: #F6F3F0;
+  --ink: #1A2421;
 }
 
 @layer base {
@@ -25,8 +25,8 @@
     @apply font-sans font-normal text-ink;
     letter-spacing: 0.01em;
     background:
-      radial-gradient(1200px 600px at 10% -10%, rgba(43, 99, 198, 0.1), transparent 55%),
-      radial-gradient(900px 500px at 90% 0%, rgba(79, 127, 224, 0.08), transparent 50%),
+      radial-gradient(1100px 520px at 8% -8%, rgba(197, 148, 88, 0.12), transparent 55%),
+      radial-gradient(900px 480px at 92% 0%, rgba(26, 36, 33, 0.06), transparent 50%),
       var(--sand-50);
   }
 
@@ -49,11 +49,11 @@
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-full px-7 py-3.5 bg-brand-burgundy text-white text-sm font-medium tracking-[0.04em] shadow-soft transition-all duration-300 ease-out hover:bg-brand-burgundy-dark hover:-translate-y-0.5 hover:shadow-lift active:translate-y-0;
+    @apply inline-flex items-center justify-center rounded-full px-7 py-3.5 bg-gold text-white text-sm font-medium tracking-[0.04em] shadow-soft transition-all duration-300 ease-out hover:bg-gold-dark hover:-translate-y-0.5 hover:shadow-lift active:translate-y-0;
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center rounded-full px-7 py-3.5 border border-brand-burgundy/30 bg-white/70 text-brand-burgundy text-sm font-medium tracking-[0.04em] backdrop-blur-sm transition-all duration-300 ease-out hover:border-brand-burgundy hover:bg-brand-burgundy hover:text-white hover:-translate-y-0.5 hover:shadow-soft active:translate-y-0;
+    @apply inline-flex items-center justify-center rounded-full px-7 py-3.5 border border-gold/40 bg-white/80 text-ink text-sm font-medium tracking-[0.04em] backdrop-blur-sm transition-all duration-300 ease-out hover:border-gold hover:bg-gold hover:text-white hover:-translate-y-0.5 hover:shadow-soft active:translate-y-0;
   }
 
   .btn-gold {
@@ -75,12 +75,12 @@
 
 .site-logo {
   display: block;
-  width: auto !important;
-  max-width: 100%;
+  width: 100% !important;
   height: 100% !important;
+  max-width: 100%;
   max-height: 100%;
-  object-fit: contain;
-  background: transparent;
+  object-fit: cover;
+  background: #000;
 }
 
 .site-logo--header,
@@ -212,15 +212,15 @@
 }
 
 .lead-modal-hero {
-  background: linear-gradient(135deg, var(--brand-burgundy-dark) 0%, var(--brand-burgundy) 100%);
-  border-radius: 8px;
+  background: linear-gradient(135deg, var(--brand-burgundy-dark) 0%, var(--brand-burgundy) 55%, #24302c 100%);
+  border-radius: 12px;
   padding: 0.85rem 0.95rem 0.8rem;
   margin-bottom: 0.75rem;
 }
 
 .lead-modal-kicker {
   margin: 0 0 0.25rem;
-  color: #f5e6ea;
+  color: var(--gold-light);
   font-size: 0.68rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -236,7 +236,7 @@
 
 .lead-modal-subtitle {
   margin: 0.35rem 0 0;
-  color: #f9eef1;
+  color: rgba(255, 255, 255, 0.78);
   font-size: 0.82rem;
   line-height: 1.55;
   font-weight: 300;
@@ -270,19 +270,19 @@
   width: 100%;
   height: 0.35rem;
   border-radius: 999px;
-  background: #f3e8ec;
+  background: #ede8e1;
   overflow: hidden;
 }
 
 .lead-modal-progress-fill {
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg, var(--brand-burgundy-dark) 0%, var(--brand-burgundy) 100%);
+  background: linear-gradient(90deg, var(--gold-dark) 0%, var(--gold) 100%);
   transition: width 0.25s ease;
 }
 
 .lead-modal-section {
-  border: 1px solid #efe4e8;
+  border: 1px solid #ede8e1;
   background: #fff;
   border-radius: 8px;
   padding: 0.65rem 0.75rem;
@@ -331,7 +331,7 @@
 .lead-modal select:focus,
 .lead-modal textarea:focus {
   outline: none;
-  border-color: var(--brand-burgundy);
+  border-color: var(--gold);
 }
 
 .lead-modal-full {
@@ -425,7 +425,7 @@
   }
 }
 
-/* Property map — Falcone brand styling */
+/* Property map — Giara brand styling */
 .property-map-shell {
   position: relative;
   overflow: hidden;
@@ -460,7 +460,7 @@
 
 .property-map-shell .leaflet-control-zoom a:hover {
   background: #fafaf9 !important;
-  color: var(--brand-burgundy) !important;
+  color: var(--gold-dark) !important;
 }
 
 .property-map-shell .leaflet-control-attribution {
@@ -533,7 +533,7 @@
   font-size: 12px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--brand-burgundy);
+  color: var(--gold-dark);
   font-weight: 400;
 }
 
@@ -549,12 +549,12 @@
   font-size: 10px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--brand-burgundy);
+  color: var(--gold-dark);
   text-decoration: none;
   font-weight: 400;
 }
 
 .property-map-popup__link:hover {
-  color: var(--brand-burgundy-dark);
+  color: var(--ink);
   text-decoration: underline;
 }
