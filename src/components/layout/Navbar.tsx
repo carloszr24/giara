@@ -17,13 +17,23 @@ const links = [
 ]
 
 const navLinkClass =
-  'inline-flex items-center leading-none text-[0.68rem] font-medium uppercase tracking-[0.12em] text-slate-600 transition-colors duration-200'
+  'inline-flex items-center leading-none text-xs font-light uppercase tracking-[0.16em] transition-colors duration-200'
 
 export function Navbar() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
   const closeTimer = useRef<NodeJS.Timeout | null>(null)
+  const isHome = pathname === '/'
+  const transparent = isHome && !scrolled && !open
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   useEffect(() => {
     return () => {
@@ -50,20 +60,22 @@ export function Navbar() {
   }
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-stone-200/80 bg-white shadow-[0_8px_30px_rgba(15,23,42,0.04)] backdrop-blur-sm">
-      <div className="mx-auto max-w-[1440px] px-5 sm:px-7 lg:px-10 xl:px-12">
-        <div
-          className={cn(
-            'flex w-full items-center justify-between',
-            HEADER_HEIGHT_CLASS
-          )}
-        >
-          <Link href="/" className="relative z-10 inline-flex shrink-0 items-center py-1">
-            <SiteLogo priority />
+    <header
+      className={cn(
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+        transparent
+          ? 'border-b border-transparent bg-transparent'
+          : 'border-b border-stone-200/80 bg-white/95 shadow-sm backdrop-blur-md'
+      )}
+    >
+      <div className="mx-auto max-w-7xl pl-5 pr-4 md:pl-12 md:pr-10">
+        <div className={cn('flex w-full items-center', HEADER_HEIGHT_CLASS)}>
+          <Link href="/" className="relative z-10 flex shrink-0 items-center py-2 md:py-2.5">
+            <SiteLogo priority tone={transparent ? 'light' : 'dark'} />
           </Link>
 
-          <div className="ml-8 hidden shrink-0 items-center gap-6 self-center md:flex lg:ml-10 lg:gap-7">
-            <nav className="flex items-center gap-6 lg:gap-7">
+          <div className="ml-auto hidden shrink-0 items-center gap-8 self-center md:flex">
+            <nav className="flex items-center gap-8">
               {links.map((link) =>
                 link.href === '/sobre-nosotros' ? (
                   <div
@@ -76,10 +88,14 @@ export function Navbar() {
                       href={link.href}
                       className={cn(
                         navLinkClass,
-                        'gap-1.5 py-1',
+                        'gap-1',
                         pathname === link.href || servicesOpen
-                          ? 'text-slate-900'
-                          : 'hover:text-slate-900'
+                          ? transparent
+                            ? 'text-white'
+                            : 'text-stone-900'
+                          : transparent
+                            ? 'text-stone-200 hover:text-white'
+                            : 'text-stone-500 hover:text-stone-900'
                       )}
                     >
                       {link.label}
@@ -87,7 +103,7 @@ export function Navbar() {
                         viewBox="0 0 20 20"
                         aria-hidden="true"
                         className={cn(
-                          'h-[0.65rem] w-[0.65rem] shrink-0 transition-transform duration-200',
+                          'h-3 w-3 shrink-0 transition-transform duration-200',
                           servicesOpen && 'rotate-180'
                         )}
                       >
@@ -103,7 +119,7 @@ export function Navbar() {
                     </Link>
                     <div
                       className={cn(
-                        'absolute right-0 top-full z-[60] pt-4',
+                        'absolute right-0 top-full z-[60] pt-3',
                         servicesOpen ? 'pointer-events-auto' : 'pointer-events-none'
                       )}
                       onMouseEnter={openServices}
@@ -111,7 +127,7 @@ export function Navbar() {
                     >
                       <div
                         className={cn(
-                          'w-[min(48rem,calc(100vw-2.5rem))] max-w-[calc(100vw-2.5rem)] rounded-xl border border-stone-200 bg-white p-5 sm:p-6 shadow-xl transition-all duration-200',
+                          'w-[min(48rem,calc(100vw-2.5rem))] max-w-[calc(100vw-2.5rem)] rounded-xl border border-stone-200 bg-white p-5 shadow-xl transition-all duration-200 sm:p-6',
                           servicesOpen ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
                         )}
                       >
@@ -147,8 +163,12 @@ export function Navbar() {
                     className={cn(
                       navLinkClass,
                       pathname === link.href
-                        ? 'text-slate-900'
-                        : 'hover:text-slate-900'
+                        ? transparent
+                          ? 'text-white'
+                          : 'text-stone-900'
+                        : transparent
+                          ? 'text-stone-200 hover:text-white'
+                          : 'text-stone-500 hover:text-stone-900'
                     )}
                   >
                     {link.label}
@@ -159,31 +179,42 @@ export function Navbar() {
 
             <ValoracionGratuitaModal
               triggerLabel="Valoración gratuita"
-              triggerClassName="inline-flex h-9 shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-gold px-4 text-[0.64rem] font-medium uppercase tracking-[0.12em] text-white shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:bg-gold-dark hover:shadow-lift"
+              triggerClassName={cn(
+                'inline-flex shrink-0 whitespace-nowrap rounded-sm px-5 py-2.5 text-xs font-light uppercase tracking-[0.12em]',
+                transparent
+                  ? 'inline-flex items-center justify-center border border-white/70 text-white transition-colors duration-200 hover:bg-white hover:text-ink'
+                  : 'btn-primary'
+              )}
             />
           </div>
 
           <button
-            className="ml-auto p-2 text-stone-600 transition-colors md:hidden"
+            className={cn(
+              'ml-auto p-2 transition-colors md:hidden',
+              transparent ? 'text-white' : 'text-stone-600'
+            )}
             onClick={() => setOpen(!open)}
             aria-label="Menu"
           >
             <div className="w-5 space-y-1.5">
               <span
                 className={cn(
-                  'block h-px bg-stone-900 transition-all duration-300',
+                  'block h-px transition-all duration-300',
+                  transparent ? 'bg-white' : 'bg-stone-900',
                   open && 'translate-y-2 rotate-45'
                 )}
               />
               <span
                 className={cn(
-                  'block h-px bg-stone-900 transition-all duration-300',
+                  'block h-px transition-all duration-300',
+                  transparent ? 'bg-white' : 'bg-stone-900',
                   open && 'opacity-0'
                 )}
               />
               <span
                 className={cn(
-                  'block h-px bg-stone-900 transition-all duration-300',
+                  'block h-px transition-all duration-300',
+                  transparent ? 'bg-white' : 'bg-stone-900',
                   open && '-translate-y-2 -rotate-45'
                 )}
               />

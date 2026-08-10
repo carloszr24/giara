@@ -1,8 +1,6 @@
 import Link from 'next/link'
 import { getFeaturedPropertiesForHome, getPublicProperties } from '@/lib/properties-store'
 import { toPropertyMapPoints } from '@/lib/property-map'
-import { HEADER_OFFSET_CLASS } from '@/lib/logo'
-import { cn } from '@/lib/utils'
 import { FeaturedPropertiesGrid } from '@/components/home/FeaturedPropertiesGrid'
 import { HeroCarousel } from '@/components/home/HeroCarousel'
 import { ScrollHint } from '@/components/home/ScrollHint'
@@ -52,12 +50,7 @@ export default async function HomePage() {
 
   return (
     <>
-      <section
-        className={cn(
-          'relative flex h-svh min-h-[34rem] flex-col items-center justify-center overflow-hidden pb-10 md:pb-12',
-          HEADER_OFFSET_CLASS
-        )}
-      >
+      <section className="relative flex h-svh min-h-[34rem] flex-col items-center justify-center overflow-hidden pb-10 md:pb-12">
         <div className="absolute inset-0">
           <HeroCarousel />
         </div>

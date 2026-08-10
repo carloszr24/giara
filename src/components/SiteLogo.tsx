@@ -19,7 +19,7 @@ type Props = {
   priority?: boolean
 }
 
-export function SiteLogo({ className, variant = 'header', priority = false }: Props) {
+export function SiteLogo({ className, variant = 'header', tone = 'dark', priority = false }: Props) {
   const isFooter = variant === 'footer'
   const imageClass = isFooter ? LOGO_FOOTER_CLASS : LOGO_IMAGE_CLASS
   const sizes = isFooter ? '96px' : '72px'
@@ -31,8 +31,9 @@ export function SiteLogo({ className, variant = 'header', priority = false }: Pr
       className={cn(
         'relative inline-flex shrink-0 items-center overflow-hidden rounded-xl',
         isFooter ? LOGO_FOOTER_HEIGHT_CLASS : LOGO_HEADER_HEIGHT_CLASS,
-        // Preserve square aspect from the source mark
-        isFooter ? 'aspect-square' : 'aspect-square',
+        'aspect-square',
+        // Soft ring so the black square mark sits cleanly on light chrome
+        tone === 'dark' && 'ring-1 ring-black/5',
         className
       )}
     >
