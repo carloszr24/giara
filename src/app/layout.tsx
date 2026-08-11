@@ -1,19 +1,19 @@
 import type { Metadata } from 'next'
-import { Cormorant_Garamond, DM_Sans } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 import './globals.css'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 
-const sans = DM_Sans({
+const sans = Poppins({
   subsets: ['latin'],
   variable: '--font-body',
-  weight: ['400', '500', '600', '700'],
+  weight: ['300', '400', '500', '600', '700'],
 })
 
-const display = Cormorant_Garamond({
+const display = Poppins({
   subsets: ['latin'],
   variable: '--font-display',
-  weight: ['400', '500', '600', '700'],
+  weight: ['300', '400', '500', '600', '700'],
 })
 
 export const metadata: Metadata = {
