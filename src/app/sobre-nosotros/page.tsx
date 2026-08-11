@@ -3,10 +3,12 @@ import Link from 'next/link'
 import {
   HOME_EXTRA_SERVICES,
   PRIMARY_SERVICES,
+  WORK_PROCESS,
   type ServiceItem,
 } from '@/data/services'
 import { TEAM_MEMBERS, TEAM_QUOTE } from '@/data/team'
 import { HEADER_OFFSET_CLASS } from '@/lib/logo'
+import { ServicesCta } from '@/components/services/ServicesCta'
 
 function BankIcon() {
   return (
@@ -52,8 +54,44 @@ function HomeIcon() {
   )
 }
 
+function ChatIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="h-5 w-5" aria-hidden="true">
+      <path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-4 3v-3H6a2 2 0 0 1-2-2V6Z" />
+    </svg>
+  )
+}
+
+function MegaphoneIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="h-5 w-5" aria-hidden="true">
+      <path d="M3 11v2a1 1 0 0 0 1 1h2l6 3V7L6 10H4a1 1 0 0 0-1 1Z" />
+      <path d="M15 9.5a3.5 3.5 0 0 1 0 5M18 8a6 6 0 0 1 0 8" />
+    </svg>
+  )
+}
+
+function ShieldIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="h-5 w-5" aria-hidden="true">
+      <path d="M12 3 5 6v5c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6l-7-3Z" />
+    </svg>
+  )
+}
+
+function HandshakeIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="h-5 w-5" aria-hidden="true">
+      <path d="M8 13 5.5 10.5a2 2 0 0 1 0-2.8L8 5.2a2 2 0 0 1 2.8 0L12 6.4" />
+      <path d="M16 11l2.5 2.5a2 2 0 0 1 0 2.8L16 18.8a2 2 0 0 1-2.8 0L12 17.6" />
+      <path d="M9 14.5 12 11l2 2 1.5-1.5" />
+      <path d="M7 17h.01M17 7h.01" />
+    </svg>
+  )
+}
+
 const primaryIcons = [BankIcon, ScaleIcon, BoltIcon, ClipboardIcon]
-const homeIcons = [HomeIcon, HomeIcon, HomeIcon, HomeIcon]
+const expectationIcons = [ChatIcon, MegaphoneIcon, ShieldIcon, HandshakeIcon]
 
 function ServiceCard({
   service,
@@ -113,16 +151,16 @@ export default function SobreNosotrosPage() {
               Inicio
             </Link>
             <span>/</span>
-            <span className="text-stone-600">Sobre nosotros</span>
+            <span className="text-stone-600">Servicios</span>
           </nav>
 
           <div className="max-w-3xl">
             <h1 className="font-display text-4xl font-light leading-tight text-stone-900 md:text-5xl lg:text-6xl">
-              Una inmobiliaria construida sobre la confianza
+              La excelencia comienza mucho antes de encontrar un comprador
             </h1>
             <p className="mt-6 text-base font-light leading-relaxed text-stone-500 md:text-lg">
-              Acompañamos a familias y particulares en las decisiones más importantes de su vida. Sin prisa,
-              sin presión, con la honestidad que cada cliente merece.
+              Vender o alquilar una vivienda no debería ser un proceso lleno de dudas, sino una
+              experiencia segura, transparente y orientada al mejor resultado posible.
             </p>
           </div>
 
@@ -144,29 +182,25 @@ export default function SobreNosotrosPage() {
                 <p className="text-[0.65rem] font-medium uppercase tracking-[0.28em] text-gold-light">
                   Lleida
                 </p>
-                <p className="mt-3 max-w-xs font-display text-3xl font-medium leading-snug text-white md:text-4xl">
-                  Marketing inmobiliario con carácter propio
+                <p className="mt-3 max-w-sm font-display text-3xl font-medium leading-snug text-white md:text-4xl">
+                  No vendemos viviendas. Construimos operaciones de éxito.
                 </p>
               </div>
             </div>
 
             <div className="lg:pt-4">
               <h2 className="font-display text-2xl font-light leading-snug text-stone-900 md:text-3xl">
-                Sobre nosotros
+                Tu casa, nuestro compromiso
               </h2>
               <div className="mt-6 space-y-5 text-sm font-light leading-relaxed text-stone-600 md:text-base">
                 <p>
-                  En Giara entendemos que el patrimonio inmobiliario no solo representa un activo
-                  material, sino también un espacio donde se construyen sueños, memorias y proyectos
-                  de vida.
+                  En Giara Inmobiliaria creemos que cada hogar tiene una historia y merece una
+                  estrategia personalizada para encontrar al comprador o inquilino ideal.
                 </p>
                 <p>
-                  Nuestra principal motivación es ayudar: facilitando la compra o venta de una
-                  propiedad, asesorando en inversiones o encontrando el hogar ideal. Creemos que el
-                  verdadero valor de nuestro trabajo radica en comprender las inquietudes de nuestros
-                  clientes y acompañarlos en cada paso, con honestidad y un trato cercano.
+                  Porque no solo vendemos viviendas: ayudamos a las personas a comenzar una nueva
+                  etapa con tranquilidad y confianza.
                 </p>
-                <p>Confianza, compromiso y pasión por el sector inmobiliario en Lleida.</p>
               </div>
             </div>
           </div>
@@ -174,46 +208,82 @@ export default function SobreNosotrosPage() {
       </section>
 
       <section className="bg-stone-50 px-6 py-20 md:px-10 md:py-24">
-        <div className="mx-auto max-w-7xl space-y-20">
-          <div>
-            <div className="mb-12 max-w-2xl">
-              <p className="mb-3 text-[10px] font-light uppercase tracking-[0.22em] text-gold">
-                Más que una inmobiliaria
-              </p>
-              <h2 className="font-display text-3xl font-light text-stone-900 md:text-4xl">
-                Servicios inmobiliarios
-              </h2>
-              <p className="mt-4 text-sm font-light leading-relaxed text-stone-500 md:text-base">
-                Financiación, plusvalía, suministros y asesoramiento jurídico con un trato cercano y
-                profesional.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-              {PRIMARY_SERVICES.map((service, index) => (
-                <ServiceCard key={service.title} service={service} icon={primaryIcons[index] ?? HomeIcon} />
-              ))}
-            </div>
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-12 max-w-2xl">
+            <p className="mb-3 text-[10px] font-light uppercase tracking-[0.22em] text-gold">
+              Cómo trabajamos
+            </p>
+            <h2 className="font-display text-3xl font-light text-stone-900 md:text-4xl">
+              Del estudio de mercado al cierre
+            </h2>
+            <p className="mt-4 text-sm font-light leading-relaxed text-stone-500 md:text-base">
+              Un método claro, profesional y orientado a defender tus intereses en cada fase.
+            </p>
           </div>
 
-          <div>
-            <div className="mb-10 max-w-2xl">
-              <p className="mb-3 text-[10px] font-light uppercase tracking-[0.22em] text-gold">
-                Cómo trabajamos
-              </p>
-              <h2 className="font-display text-2xl font-light text-stone-900 md:text-3xl">
-                Asesoramiento, valoración y marketing
-              </h2>
-              <p className="mt-4 text-sm font-light leading-relaxed text-stone-500">
-                Acompañamos a compradores y vendedores con un servicio completo, desde la búsqueda hasta la
-                difusión de su propiedad.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {HOME_EXTRA_SERVICES.map((service, index) => (
-                <ServiceCard key={service.title} service={service} icon={homeIcons[index] ?? HomeIcon} />
-              ))}
-            </div>
+          <ol className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            {WORK_PROCESS.map((step, index) => (
+              <li
+                key={step.title}
+                className="border border-stone-200 bg-white p-8 transition-colors duration-300 hover:border-gold/40"
+              >
+                <span className="mb-5 inline-flex h-10 w-10 items-center justify-center border border-stone-200 font-display text-sm font-light text-gold-dark">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <h3 className="mb-3 font-display text-xl font-light text-stone-900">{step.title}</h3>
+                <p className="text-sm font-light leading-relaxed text-stone-500">{step.desc}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className="border-t border-stone-200 px-6 py-20 md:px-10 md:py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-12 max-w-2xl">
+            <p className="mb-3 text-[10px] font-light uppercase tracking-[0.22em] text-gold">
+              Qué puedes esperar
+            </p>
+            <h2 className="font-display text-3xl font-light text-stone-900 md:text-4xl">
+              Acompañamiento en cada decisión
+            </h2>
+            <p className="mt-4 text-sm font-light leading-relaxed text-stone-500 md:text-base">
+              Transparencia, difusión y negociación profesional para vender o alquilar con
+              tranquilidad.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {HOME_EXTRA_SERVICES.map((service, index) => (
+              <ServiceCard
+                key={service.title}
+                service={service}
+                icon={expectationIcons[index] ?? HomeIcon}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-stone-200 bg-stone-50 px-6 py-20 md:px-10 md:py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-12 max-w-2xl">
+            <p className="mb-3 text-[10px] font-light uppercase tracking-[0.22em] text-gold">
+              Más que una inmobiliaria
+            </p>
+            <h2 className="font-display text-3xl font-light text-stone-900 md:text-4xl">
+              Servicios complementarios
+            </h2>
+            <p className="mt-4 text-sm font-light leading-relaxed text-stone-500 md:text-base">
+              Financiación, plusvalía, suministros y asesoramiento jurídico con un trato cercano y
+              profesional.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            {PRIMARY_SERVICES.map((service, index) => (
+              <ServiceCard key={service.title} service={service} icon={primaryIcons[index] ?? HomeIcon} />
+            ))}
           </div>
         </div>
       </section>
@@ -233,11 +303,10 @@ export default function SobreNosotrosPage() {
           <div className="mt-20">
             <p className="mb-3 text-[10px] font-light uppercase tracking-[0.22em] text-gold">El equipo</p>
             <h2 className="font-display text-3xl font-light text-stone-900 md:text-4xl">
-              Comprometidos a darle la solución que busca
+              Comprometidos a darte la solución que buscas
             </h2>
             <p className="mt-4 max-w-2xl text-sm font-light leading-relaxed text-stone-500 md:text-base">
-              Un equipo cercano, con experiencia en el mercado local. Las fotos del equipo las iremos
-              añadiendo poco a poco.
+              Un equipo cercano, con experiencia en el mercado local de Lleida.
             </p>
 
             <ul className="mt-12 grid grid-cols-1 gap-10 sm:grid-cols-2 md:max-w-md">
@@ -254,21 +323,7 @@ export default function SobreNosotrosPage() {
             </ul>
           </div>
 
-          <div className="mt-20 flex flex-col items-start justify-between gap-6 border border-stone-200 bg-white p-8 md:flex-row md:items-center md:p-10">
-            <div>
-              <h3 className="font-display text-2xl font-light text-stone-900">¿Hablamos?</h3>
-              <p className="mt-2 max-w-md text-sm font-light leading-relaxed text-stone-500">
-                Cuéntenos qué necesita y le atenderemos.
-              </p>
-            </div>
-            <Link
-              href="/contacto"
-              className="inline-flex shrink-0 items-center gap-2 border border-gold px-8 py-3.5 text-[10px] font-light uppercase tracking-[0.14em] text-gold-dark transition-colors hover:bg-gold hover:text-white"
-            >
-              Escríbanos
-              <span aria-hidden="true">→</span>
-            </Link>
-          </div>
+          <ServicesCta />
         </div>
       </section>
     </div>
