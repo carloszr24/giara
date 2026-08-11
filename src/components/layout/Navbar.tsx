@@ -172,7 +172,7 @@ export function Navbar() {
             <ValoracionGratuitaModal
               triggerLabel="Valoración gratuita"
               triggerClassName={cn(
-                'inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-sm px-4 py-1.5 text-xs font-light uppercase tracking-[0.12em] transition-colors duration-200',
+                'inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-sm px-4 py-2 text-xs font-light uppercase tracking-[0.12em] transition-colors duration-200',
                 transparent
                   ? 'border border-white/70 text-white hover:bg-white hover:text-header'
                   : 'border border-gold/80 bg-gold text-white hover:bg-gold-dark'

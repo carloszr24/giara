@@ -8,7 +8,7 @@ export const LOGO_RENDER = {
 }
 
 /** Header mark height — keep transparent, no forced black plate. */
-export const LOGO_HEADER_HEIGHT_CLASS = 'h-7 md:h-8'
+export const LOGO_HEADER_HEIGHT_CLASS = 'h-8 md:h-9'
 
 export const LOGO_FOOTER_HEIGHT_CLASS = 'h-14 md:h-16'
 
@@ -16,9 +16,9 @@ export const LOGO_IMAGE_CLASS = 'site-logo site-logo--header'
 
 export const LOGO_FOOTER_CLASS = 'site-logo site-logo--footer'
 
-/** Compact fixed bar (~48px). Keep in sync with HEADER_OFFSET_CLASS. */
-export const HEADER_HEIGHT_CLASS = 'h-12'
+/** Fixed bar (~58–62px). Slightly under pre-shrink h-14; keep in sync with HEADER_OFFSET_CLASS. */
+export const HEADER_HEIGHT_CLASS = 'h-[3.65rem] md:h-[3.85rem]'
 
-export const HEADER_OFFSET_CLASS = 'pt-12'
+export const HEADER_OFFSET_CLASS = 'pt-[3.65rem] md:pt-[3.85rem]'
 
 export type LogoTone = 'light' | 'dark'
