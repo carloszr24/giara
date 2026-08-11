@@ -159,17 +159,33 @@ export async function searchAddressSuggestions(
   if (trimmed.length < 3) return []
 
   const fullQuery = buildGeocodeQuery(trimmed, province)
+  const queryVariants = Array.from(
+    new Set(
+      [
+        fullQuery,
+        `${trimmed}, Lleida, España`,
+        `${trimmed}, Catalunya, España`,
+        `${trimmed}, España`,
+        trimmed,
+      ].filter(Boolean)
+    )
+  )
 
-  const hits = await nominatimSearch({
-    q: fullQuery,
-    format: 'json',
-    limit: '8',
-    countrycodes: 'es',
-    addressdetails: '1',
-    dedupe: '1',
-    viewbox: LLEIDA_VIEWBOX,
-    bounded: '0',
-  })
+  const hits: NominatimHit[] = []
+  for (const candidate of queryVariants) {
+    const batch = await nominatimSearch({
+      q: candidate,
+      format: 'json',
+      limit: '8',
+      countrycodes: 'es',
+      addressdetails: '1',
+      dedupe: '1',
+      viewbox: LLEIDA_VIEWBOX,
+      bounded: '0',
+    })
+    hits.push(...batch)
+    if (hits.length >= 8) break
+  }
 
   const suggestions: GeocodeSuggestion[] = []
   const seen = new Set<string>()
