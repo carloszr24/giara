@@ -1,0 +1,25 @@
+---
+description: Auto commit and push site changes to GitHub after meaningful edits
+alwaysApply: true
+---
+
+# Auto deploy to Git
+
+After finishing a meaningful code/content change for this project (Giara site), **commit and push to `origin/main` without waiting for the user to ask**.
+
+## When to deploy
+- UI, copy, branding, config, or feature changes that should live on GitHub
+- Do it at the end of the task, once the change works
+
+## When NOT to deploy
+- Pure questions / exploration with no file changes
+- If the user explicitly says not to push / not to commit
+- Do not commit secrets (`.env.local`, credentials, API keys)
+- Skip unrelated local experiments unless they are part of the requested work (e.g. leave `test-empresa/`, scratch `scripts/` alone unless asked)
+
+## How
+1. `git status`, `git diff`, `git log` (brief) per normal commit protocol
+2. Stage only relevant files
+3. Commit with a concise message (HEREDOC)
+4. `git push -u origin HEAD` (never force-push)
+5. Mention the commit briefly in the reply; no need to ask “¿hago deploy?”
