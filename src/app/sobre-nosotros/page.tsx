@@ -132,19 +132,17 @@ export default function SobreNosotrosPage() {
 
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-ink">
-              <div
-                className="absolute inset-0"
-                style={{
-                  background: `
-                    radial-gradient(ellipse 80% 70% at 70% 30%, rgba(197,148,88,0.35), transparent 55%),
-                    linear-gradient(145deg, #121A18, #1A2421 50%, #2F3D38)
-                  `,
-                }}
-                aria-hidden="true"
+              <Image
+                src="/images/properties/piso-cappont/1.png"
+                alt="Propiedad actual gestionada por Giara en Lleida"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent" aria-hidden="true" />
               <div className="absolute inset-0 flex flex-col items-start justify-end p-8 md:p-10">
                 <p className="text-[0.65rem] font-medium uppercase tracking-[0.28em] text-gold-light">
-                  Lleida
+                  Propiedades actuales
                 </p>
                 <p className="mt-3 max-w-sm font-display text-3xl font-medium leading-snug text-white md:text-4xl">
                   No vendemos viviendas. Construimos operaciones de éxito.
