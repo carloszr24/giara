@@ -139,15 +139,6 @@ export default function SobreNosotrosPage() {
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent" aria-hidden="true" />
-              <div className="absolute inset-0 flex flex-col items-start justify-end p-8 md:p-10">
-                <p className="text-[0.65rem] font-medium uppercase tracking-[0.28em] text-gold-light">
-                  Propiedades actuales
-                </p>
-                <p className="mt-3 max-w-sm font-display text-3xl font-medium leading-snug text-white md:text-4xl">
-                  No vendemos viviendas. Construimos operaciones de éxito.
-                </p>
-              </div>
             </div>
 
             <div className="lg:pt-4">
