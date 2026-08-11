@@ -24,7 +24,7 @@ export function LocationSearchInput({
   value,
   onChange,
   onSelect,
-  placeholder = 'Ej: Gran Passeig de Ronda, Lleida',
+  placeholder = 'Ej: Lleida',
   className,
 }: Props) {
   const [suggestions, setSuggestions] = useState<Suggestion[]>([])
@@ -120,7 +120,7 @@ export function LocationSearchInput({
           ))}
           {!loading && suggestions.length === 0 && value.trim().length >= 3 && (
             <p className="px-4 py-3 text-xs font-light text-stone-400">
-              No encontramos esa zona. Pruebe con calle y pueblo.
+              No encontramos esa localidad. Pruebe con el nombre del municipio o ciudad.
             </p>
           )}
         </div>

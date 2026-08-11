@@ -102,10 +102,10 @@ export function PropertyIntentSearch({
               value={location}
               onChange={handleLocationText}
               onSelect={applyLocation}
-              placeholder={isBuy ? 'Barrio, calle o pueblo…' : 'Dirección o zona de la vivienda…'}
+              placeholder={isBuy ? 'Localidad…' : 'Localidad de la vivienda…'}
             />
             <p className="mt-2 text-xs font-light text-stone-400">
-              Escriba y elija una sugerencia para situar la zona en el mapa.
+              Escriba y elija una sugerencia para situar la localidad en el mapa.
             </p>
           </div>
 

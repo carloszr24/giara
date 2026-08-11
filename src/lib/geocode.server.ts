@@ -70,36 +70,18 @@ function localityFromAddress(address: NominatimHit['address']): string | null {
     address.city ||
     address.village ||
     address.municipality ||
-    address.suburb ||
-    address.neighbourhood ||
     null
   )
 }
 
-function streetFromAddress(address: NominatimHit['address']): string | null {
-  if (!address) return null
-  const base = address.road || address.pedestrian
-  if (!base) return null
-  return address.house_number ? `${base} ${address.house_number}` : base
-}
-
 function formatSuggestion(hit: NominatimHit): GeocodeSuggestion {
-  const street = streetFromAddress(hit.address)
   const locality = localityFromAddress(hit.address)
   const province = hit.address?.state || hit.address?.county || null
   const postcode = hit.address?.postcode || null
 
-  const label =
-    street ||
-    locality ||
-    hit.display_name.split(',')[0]?.trim() ||
-    hit.display_name
+  const label = locality || hit.display_name.split(',')[0]?.trim() || hit.display_name
 
-  const subtitleParts = [
-    street && locality ? locality : null,
-    province,
-    postcode,
-  ].filter(Boolean)
+  const subtitleParts = [province, postcode].filter(Boolean)
 
   const subtitle =
     subtitleParts.length > 0
@@ -114,6 +96,12 @@ function formatSuggestion(hit: NominatimHit): GeocodeSuggestion {
     longitude: parseFloat(hit.lon),
     displayName: hit.display_name,
   }
+}
+
+function isLocalityHit(hit: NominatimHit): boolean {
+  const placeType = (hit.type || '').toLowerCase()
+  if (['city', 'town', 'village', 'municipality', 'administrative'].includes(placeType)) return true
+  return Boolean(localityFromAddress(hit.address))
 }
 
 export function buildGeocodeQuery(address: string, province?: string | null): string {
@@ -194,6 +182,7 @@ export async function searchAddressSuggestions(
     const latitude = parseFloat(hit.lat)
     const longitude = parseFloat(hit.lon)
     if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) continue
+    if (!isLocalityHit(hit)) continue
 
     const suggestion = formatSuggestion(hit)
     const key = `${suggestion.label}|${suggestion.subtitle}|${latitude.toFixed(5)}|${longitude.toFixed(5)}`
