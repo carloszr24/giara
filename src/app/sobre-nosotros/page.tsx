@@ -2,47 +2,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import {
   HOME_EXTRA_SERVICES,
-  PRIMARY_SERVICES,
   WORK_PROCESS,
   type ServiceItem,
 } from '@/data/services'
 import { TEAM_MEMBERS, TEAM_QUOTE } from '@/data/team'
 import { HEADER_OFFSET_CLASS } from '@/lib/logo'
 import { ServicesCta } from '@/components/services/ServicesCta'
-
-function BankIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="h-5 w-5" aria-hidden="true">
-      <path d="M3 10h18M5 10V20M9 10V20M15 10V20M19 10V20M2 20h20M12 4l8 6H4l8-6Z" />
-    </svg>
-  )
-}
-
-function ScaleIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="h-5 w-5" aria-hidden="true">
-      <path d="M12 3v18M5 7h14M7 7l-2 6h4l-2-6M17 7l-2 6h4l-2-6" />
-    </svg>
-  )
-}
-
-function BoltIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="h-5 w-5" aria-hidden="true">
-      <path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" />
-    </svg>
-  )
-}
-
-function ClipboardIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" className="h-5 w-5" aria-hidden="true">
-      <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2" />
-      <rect x="9" y="3" width="6" height="4" rx="1" />
-      <path d="M9 12h6M9 16h6" />
-    </svg>
-  )
-}
 
 function HomeIcon() {
   return (
@@ -90,7 +55,6 @@ function HandshakeIcon() {
   )
 }
 
-const primaryIcons = [BankIcon, ScaleIcon, BoltIcon, ClipboardIcon]
 const expectationIcons = [ChatIcon, MegaphoneIcon, ShieldIcon, HandshakeIcon]
 
 function ServiceCard({
@@ -260,29 +224,6 @@ export default function SobreNosotrosPage() {
                 service={service}
                 icon={expectationIcons[index] ?? HomeIcon}
               />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="border-t border-stone-200 bg-stone-50 px-6 py-20 md:px-10 md:py-24">
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-12 max-w-2xl">
-            <p className="mb-3 text-[10px] font-light uppercase tracking-[0.22em] text-gold">
-              Más que una inmobiliaria
-            </p>
-            <h2 className="font-display text-3xl font-light text-stone-900 md:text-4xl">
-              Servicios complementarios
-            </h2>
-            <p className="mt-4 text-sm font-light leading-relaxed text-stone-500 md:text-base">
-              Financiación, plusvalía, suministros y asesoramiento jurídico con un trato cercano y
-              profesional.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            {PRIMARY_SERVICES.map((service, index) => (
-              <ServiceCard key={service.title} service={service} icon={primaryIcons[index] ?? HomeIcon} />
             ))}
           </div>
         </div>
