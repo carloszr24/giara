@@ -10,10 +10,7 @@ type Props = {
 
 export function HeroActions({ mapPoints }: Props) {
   return (
-    <div
-      className="flex w-full max-w-xl mx-auto flex-col sm:flex-row gap-3 sm:gap-4 animate-fade-up md:-translate-y-2"
-      style={{ animationDelay: '0.2s', opacity: 0, animationFillMode: 'forwards' }}
-    >
+    <div className="flex w-full max-w-xl mx-auto flex-col sm:flex-row gap-3 sm:gap-4">
       <DeseoComprarModal
         triggerLabel="Deseo comprar"
         mapPoints={mapPoints}

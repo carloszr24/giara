@@ -50,12 +50,13 @@ export default async function HomePage() {
 
   return (
     <>
-      <section className="relative flex h-svh min-h-[34rem] flex-col items-center justify-center overflow-hidden pb-10 md:pb-12">
+      <section className="relative flex h-svh min-h-[34rem] flex-col overflow-hidden">
         <div className="absolute inset-0">
           <HeroCarousel />
         </div>
 
-        <div className="relative z-10 flex w-full flex-1 flex-col items-center justify-end px-5 min-[400px]:px-6 pb-24 md:pb-28">
+        {/* Anchored to bottom so title/CTAs sit just above ScrollHint — not vertically centered */}
+        <div className="absolute inset-x-0 bottom-0 z-10 flex w-full flex-col items-center px-5 min-[400px]:px-6 pb-28 md:pb-32">
           <div className="mx-auto w-full max-w-3xl text-center">
             <h1
               className="font-display text-balance text-[clamp(2.4rem,6vw+0.4rem,4.25rem)] font-medium leading-[1.08] text-white mb-6 animate-fade-up"
