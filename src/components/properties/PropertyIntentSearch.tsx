@@ -48,8 +48,9 @@ export function PropertyIntentSearch({
     const params = new URLSearchParams()
     params.set('operation', 'venta')
     if (propertyType) params.set('type', propertyType)
+    if (location.trim()) params.set('location', location.trim())
     return `/propiedades?${params.toString()}`
-  }, [propertyType])
+  }, [location, propertyType])
 
   const navigateAway = (href: string) => {
     onClose?.()

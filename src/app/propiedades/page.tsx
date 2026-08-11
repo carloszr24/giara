@@ -20,6 +20,7 @@ interface SearchParams {
   bedrooms?: string
   bathrooms?: string
   province?: string
+  location?: string
 }
 
 export default async function PropiedadesPage({

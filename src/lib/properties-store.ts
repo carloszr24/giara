@@ -37,6 +37,29 @@ function parseExtrasParam(extras?: string, legacyExtra?: string): string[] {
   return legacyExtra ? [legacyExtra] : []
 }
 
+function normalizeSearchText(value: string): string {
+  return value
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+function matchesLocation(property: Property, locationQuery: string): boolean {
+  const normalizedQuery = normalizeSearchText(locationQuery)
+  if (!normalizedQuery) return true
+
+  const haystack = normalizeSearchText(
+    [property.location, property.address, property.title, property.province].filter(Boolean).join(' ')
+  )
+
+  return normalizedQuery
+    .split(' ')
+    .filter(Boolean)
+    .every((token) => haystack.includes(token))
+}
+
 function sortByDisplayOrder(properties: Property[]): Property[] {
   return [...properties].sort((a, b) => {
     const orderDiff = (a.sortOrder ?? 0) - (b.sortOrder ?? 0)
@@ -75,6 +98,7 @@ export function filterProperties(
     bedrooms?: string
     bathrooms?: string
     province?: string
+    location?: string
   }
 ): Property[] {
   let list = [...properties]
@@ -93,6 +117,9 @@ export function filterProperties(
 
   if (searchParams.province) {
     list = list.filter((p) => getPropertyProvince(p) === searchParams.province)
+  }
+  if (searchParams.location) {
+    list = list.filter((p) => matchesLocation(p, searchParams.location!))
   }
   if (searchParams.bedrooms) {
     list = list.filter((p) => matchesBedrooms(p, searchParams.bedrooms!))
