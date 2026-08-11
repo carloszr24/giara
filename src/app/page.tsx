@@ -57,19 +57,13 @@ export default async function HomePage() {
 
         <div className="relative z-10 flex w-full flex-1 items-center justify-center px-5 min-[400px]:px-6">
           <div className="mx-auto w-full max-w-3xl text-center">
-            <p
-              className="mb-5 text-[0.68rem] font-medium uppercase tracking-[0.32em] text-gold-light animate-fade-up"
-              style={{ opacity: 0, animationFillMode: 'forwards' }}
-            >
-              Giara Inmobiliaria
-            </p>
             <h1
               className="font-display text-balance text-[clamp(2.4rem,6vw+0.4rem,4.25rem)] font-medium leading-[1.08] text-white mb-6 animate-fade-up"
-              style={{ opacity: 0, animationDelay: '0.08s', animationFillMode: 'forwards' }}
+              style={{ opacity: 0, animationFillMode: 'forwards' }}
             >
-              Propiedades excepcionales
-              <br className="hidden sm:block" />
-              {' '}en <span className="italic text-gold-light">Lleida</span>
+              Compra o vende tu propiedad en{' '}
+              <span className="italic text-gold-light">Lleida</span>
+              {' '}en menos de 20 días
             </h1>
             <p
               className="mx-auto mb-10 max-w-md text-pretty text-base font-normal leading-relaxed text-white/75 sm:text-lg animate-fade-up"
