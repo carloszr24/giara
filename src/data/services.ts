@@ -24,20 +24,20 @@ export const WORK_PROCESS: ServiceItem[] = [
 /** Qué puedes esperar — alineado con el acompañamiento comercial. */
 export const HOME_EXTRA_SERVICES: ServiceItem[] = [
   {
-    title: 'Asesoramiento personalizado',
-    desc: 'Desde el primer día te acompañamos con una estrategia adaptada a tu vivienda y a tus objetivos de venta o alquiler.',
+    title: 'Compra y venta',
+    desc: 'Te acompañamos en todo el proceso para comprar o vender tu propiedad, con un seguimiento cercano de principio a fin.',
   },
   {
-    title: 'Máxima difusión',
-    desc: 'Publicamos y promovemos tu inmueble en los principales portales inmobiliarios y redes sociales para llegar al comprador o inquilino ideal.',
+    title: 'Broker inmobiliario',
+    desc: 'Conectamos oportunidades con asesoría profesional y estratégica, orientada a defender tus intereses en cada operación.',
   },
   {
-    title: 'Gestión transparente',
-    desc: 'Acompañamiento claro en cada fase del proceso: sabes en todo momento cómo avanza tu operación, sin sorpresas ni letra pequeña.',
+    title: 'Tasaciones',
+    desc: 'Valoramos tu propiedad con criterios técnicos y de mercado para establecer una estrategia sólida y realista.',
   },
   {
-    title: 'Negociación profesional',
-    desc: 'Defendemos tu posición en cada oferta para conseguir el mejor precio y las condiciones más favorables para tu propiedad.',
+    title: 'Gestión de documentación',
+    desc: 'Nos encargamos de todo el proceso documental y legal para que avances con tranquilidad, claridad y seguridad.',
   },
 ]
 

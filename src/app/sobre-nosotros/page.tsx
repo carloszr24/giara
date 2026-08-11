@@ -195,14 +195,14 @@ export default function SobreNosotrosPage() {
         <div className="mx-auto max-w-7xl">
           <div className="mb-12 max-w-2xl">
             <p className="mb-3 text-[10px] font-light uppercase tracking-[0.22em] text-gold">
-              Qué puedes esperar
+              Servicios
             </p>
             <h2 className="font-display text-3xl font-light text-stone-900 md:text-4xl">
-              Acompañamiento en cada decisión
+              Asesoramiento en cada fase
             </h2>
             <p className="mt-4 text-sm font-light leading-relaxed text-stone-500 md:text-base">
-              Transparencia, difusión y negociación profesional para vender o alquilar con
-              tranquilidad.
+              Un servicio completo para comprar, vender y gestionar tu propiedad con criterio
+              profesional.
             </p>
           </div>
 
