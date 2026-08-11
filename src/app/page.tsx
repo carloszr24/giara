@@ -56,7 +56,7 @@ export default async function HomePage() {
         </div>
 
         {/* Anchored to bottom so title/CTAs sit just above ScrollHint — not vertically centered */}
-        <div className="absolute inset-x-0 bottom-0 z-10 flex w-full flex-col items-center px-5 min-[400px]:px-6 pb-28 md:pb-32">
+        <div className="absolute inset-x-0 bottom-0 z-10 flex w-full flex-col items-center px-5 min-[400px]:px-6 pb-24 md:pb-28">
           <div className="mx-auto w-full max-w-3xl text-center">
             <h1
               className="font-display text-balance text-[clamp(2.4rem,6vw+0.4rem,4.25rem)] font-medium leading-[1.08] text-white mb-6 animate-fade-up"
