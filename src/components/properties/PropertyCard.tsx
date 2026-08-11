@@ -18,8 +18,8 @@ export function PropertyCard({ property, variant = 'default', priority = false }
   const isFeaturedMinimal = variant === 'featuredMinimal'
 
   return (
-    <Link href={`/propiedades/${property.id}`} className="group block">
-      <article className="card-hover overflow-hidden bg-white border border-stone-100">
+    <Link href={`/propiedades/${property.id}`} className="group block h-full">
+      <article className="card-hover flex h-full flex-col overflow-hidden bg-white border border-stone-100">
         {/* Image */}
         <div className={cn('relative overflow-hidden bg-stone-100', isFeaturedMinimal ? 'aspect-[3/4]' : 'aspect-[16/10]')}>
           <Image
@@ -64,10 +64,10 @@ export function PropertyCard({ property, variant = 'default', priority = false }
         )}
 
         {/* Content */}
-        <div className={cn('p-6', isFeaturedMinimal && 'p-4')}>
+        <div className={cn('flex flex-1 flex-col p-6', isFeaturedMinimal && 'p-4')}>
           <div className={cn('flex items-start justify-between gap-4', isFeaturedMinimal ? 'mb-4' : 'mb-3')}>
             <h3 className={cn(
-              'font-medium text-stone-900 leading-snug line-clamp-2 group-hover:text-gold transition-colors',
+              'min-h-[2.75em] font-medium text-stone-900 leading-snug line-clamp-2 group-hover:text-gold transition-colors',
               isFeaturedMinimal ? 'text-base' : 'text-lg'
             )}>
               {property.title}
@@ -76,22 +76,22 @@ export function PropertyCard({ property, variant = 'default', priority = false }
 
           {!isFeaturedMinimal && (
             <>
-              <p className="text-sm text-stone-500 mb-5">
+              <p className="mb-5 truncate text-sm text-stone-500">
                 {property.location}
               </p>
 
               {/* Stats */}
               {(property.sqMeters || property.bedrooms || property.bathrooms) && (
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs uppercase tracking-[0.18em] text-stone-500 mb-5 pb-5 border-b border-stone-100">
-                  {property.sqMeters && <span>{property.sqMeters} m²</span>}
+                <div className="mb-5 flex min-h-[2.25rem] flex-nowrap items-center gap-x-4 overflow-hidden border-b border-stone-100 pb-5 text-xs uppercase tracking-[0.18em] text-stone-500">
+                  {property.sqMeters && <span className="shrink-0">{property.sqMeters} m²</span>}
                   {property.bedrooms != null && property.bedrooms > 0 && (
-                    <span>{property.bedrooms} hab.</span>
+                    <span className="shrink-0">{property.bedrooms} hab.</span>
                   )}
-                  {property.bathrooms && <span>{property.bathrooms} baños</span>}
-                  <span className="ml-auto text-[11px] bg-stone-100 px-2.5 py-1 text-stone-600 tracking-[0.12em] uppercase">
+                  {property.bathrooms && <span className="shrink-0">{property.bathrooms} baños</span>}
+                  <span className="ml-auto shrink-0 text-[11px] bg-stone-100 px-2.5 py-1 text-stone-600 tracking-[0.12em] uppercase">
                     {TYPE_LABELS[property.type] || property.type}
                   </span>
-                  <span className="text-[11px] bg-stone-100 px-2.5 py-1 text-stone-600 tracking-[0.12em] uppercase">
+                  <span className="shrink-0 text-[11px] bg-stone-100 px-2.5 py-1 text-stone-600 tracking-[0.12em] uppercase">
                     {OPERATION_LABELS[property.operation || 'venta'] || property.operation || 'Venta'}
                   </span>
                 </div>
@@ -102,7 +102,7 @@ export function PropertyCard({ property, variant = 'default', priority = false }
           {/* Price */}
           <div
             className={cn(
-              'flex items-center justify-between',
+              'mt-auto flex items-center justify-between',
               isFeaturedMinimal ? 'pt-0' : 'hidden md:flex'
             )}
           >
@@ -123,13 +123,13 @@ export function PropertyCard({ property, variant = 'default', priority = false }
 
 export function PropertyCardSkeleton() {
   return (
-    <div className="bg-white border border-stone-100">
+    <div className="flex h-full flex-col bg-white border border-stone-100">
       <div className="skeleton aspect-[4/3]" />
-      <div className="p-5 space-y-3">
+      <div className="flex flex-1 flex-col space-y-3 p-5">
         <div className="skeleton h-4 w-3/4" />
         <div className="skeleton h-3 w-1/2" />
         <div className="skeleton h-3 w-full" />
-        <div className="skeleton h-6 w-1/3 mt-4" />
+        <div className="skeleton mt-auto h-6 w-1/3" />
       </div>
     </div>
   )

@@ -21,7 +21,7 @@ export function FeaturedPropertiesGrid({ properties }: FeaturedPropertiesGridPro
           {properties.map((property, index) => (
             <div
               key={property.id}
-              className="snap-start shrink-0 w-[86vw] sm:w-[68vw] md:w-[52%] lg:w-auto lg:min-w-0"
+              className="snap-start shrink-0 w-[86vw] sm:w-[68vw] md:w-[52%] lg:w-auto lg:min-w-0 h-full"
             >
               <PropertyCard property={property} variant="featuredMinimal" priority={index === 0} />
             </div>
