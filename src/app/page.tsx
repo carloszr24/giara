@@ -70,7 +70,7 @@ export default async function HomePage() {
               className="mx-auto mb-10 max-w-md text-pretty text-base font-normal leading-relaxed text-white/75 sm:text-lg animate-fade-up"
               style={{ opacity: 0, animationDelay: '0.16s', animationFillMode: 'forwards' }}
             >
-              Marketing inmobiliario personalizado. Te acompañamos en cada paso de la compra o venta.
+              Asesoramiento personalizado y acompañamiento profesional en cada paso de la compra o venta.
             </p>
             <div
               className="animate-fade-up"
