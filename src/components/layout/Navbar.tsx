@@ -19,8 +19,8 @@ const links = [
 const navLinkClass =
   'inline-flex items-center leading-none text-xs font-light uppercase tracking-[0.16em] transition-colors duration-200'
 
-/** Expand full chrome after a short scroll so content isn't covered at rest. */
-const SCROLL_EXPAND_PX = 32
+/** Reveal the fixed header only after the user has started scrolling. */
+const SCROLL_REVEAL_PX = 28
 
 export function Navbar() {
   const pathname = usePathname()
@@ -28,14 +28,11 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
   const closeTimer = useRef<NodeJS.Timeout | null>(null)
-  const isHome = pathname === '/'
-  /** Logo-only (transparent) at top of every public page; full bar once scrolled or mobile menu open. */
+  /** Keep the entire public header hidden at the very top; reveal it once scrolled or opened. */
   const minimal = !scrolled && !open
-  /** Home hero is dark; other pages often start light — hamburger contrast follows that. */
-  const lightOnMinimal = isHome
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > SCROLL_EXPAND_PX)
+    const onScroll = () => setScrolled(window.scrollY > SCROLL_REVEAL_PX)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
@@ -75,18 +72,17 @@ export function Navbar() {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
         minimal
-          ? 'border-b border-transparent bg-transparent shadow-none'
+          ? 'pointer-events-none -translate-y-full border-b border-transparent bg-transparent opacity-0 shadow-none'
           : 'border-b border-white/10 bg-header shadow-sm'
       )}
+      aria-hidden={minimal}
     >
       <div className="mx-auto max-w-7xl pl-5 pr-4 md:pl-12 md:pr-10">
         <div className={cn('flex w-full items-center', HEADER_HEIGHT_CLASS)}>
           <Link
             href="/"
             className={cn(
-              'relative z-10 flex shrink-0 items-center rounded-sm transition-[filter] duration-300',
-              minimal &&
-                'drop-shadow-[0_1px_1px_rgba(255,255,255,0.45)] drop-shadow-[0_1px_3px_rgba(26,36,33,0.22)]'
+              'relative z-10 flex shrink-0 items-center rounded-sm transition-[filter] duration-300'
             )}
           >
             <SiteLogo priority tone="light" />
@@ -207,10 +203,7 @@ export function Navbar() {
             type="button"
             className={cn(
               'ml-auto rounded-sm p-2 transition-colors md:hidden',
-              minimal && !lightOnMinimal
-                ? 'text-ink'
-                : 'text-white',
-              minimal && lightOnMinimal && 'drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)]'
+              'text-white'
             )}
             onClick={() => setOpen(!open)}
             aria-label="Menu"

@@ -16,9 +16,10 @@ export const LOGO_IMAGE_CLASS = 'site-logo site-logo--header'
 
 export const LOGO_FOOTER_CLASS = 'site-logo site-logo--footer'
 
-/** Fixed bar (~58–62px). Slightly under pre-shrink h-14; keep in sync with HEADER_OFFSET_CLASS. */
+/** Fixed bar (~58–62px). */
 export const HEADER_HEIGHT_CLASS = 'h-[3.65rem] md:h-[3.85rem]'
 
-export const HEADER_OFFSET_CLASS = 'pt-[3.65rem] md:pt-[3.85rem]'
+/** Public pages now start flush to the top because the header stays hidden until scroll. */
+export const HEADER_OFFSET_CLASS = 'pt-0'
 
 export type LogoTone = 'light' | 'dark'
