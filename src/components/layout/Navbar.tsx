@@ -19,6 +19,9 @@ const links = [
 const navLinkClass =
   'inline-flex items-center leading-none text-xs font-light uppercase tracking-[0.16em] transition-colors duration-200'
 
+/** Expand full chrome after a short scroll so content isn't covered at rest. */
+const SCROLL_EXPAND_PX = 32
+
 export function Navbar() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
@@ -26,10 +29,13 @@ export function Navbar() {
   const [servicesOpen, setServicesOpen] = useState(false)
   const closeTimer = useRef<NodeJS.Timeout | null>(null)
   const isHome = pathname === '/'
-  const transparent = isHome && !scrolled && !open
+  /** Logo-only (transparent) at top of every public page; full bar once scrolled or mobile menu open. */
+  const minimal = !scrolled && !open
+  /** Home hero is dark; other pages often start light — hamburger contrast follows that. */
+  const lightOnMinimal = isHome
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40)
+    const onScroll = () => setScrolled(window.scrollY > SCROLL_EXPAND_PX)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
@@ -40,6 +46,11 @@ export function Navbar() {
       if (closeTimer.current) clearTimeout(closeTimer.current)
     }
   }, [])
+
+  useEffect(() => {
+    setOpen(false)
+    setServicesOpen(false)
+  }, [pathname])
 
   if (pathname.startsWith('/admin')) return null
 
@@ -63,18 +74,33 @@ export function Navbar() {
     <header
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        transparent
-          ? 'border-b border-transparent bg-transparent'
+        minimal
+          ? 'border-b border-transparent bg-transparent shadow-none'
           : 'border-b border-white/10 bg-header shadow-sm'
       )}
     >
       <div className="mx-auto max-w-7xl pl-5 pr-4 md:pl-12 md:pr-10">
         <div className={cn('flex w-full items-center', HEADER_HEIGHT_CLASS)}>
-          <Link href="/" className="relative z-10 flex shrink-0 items-center">
+          <Link
+            href="/"
+            className={cn(
+              'relative z-10 flex shrink-0 items-center rounded-sm transition-[filter] duration-300',
+              minimal &&
+                'drop-shadow-[0_1px_1px_rgba(255,255,255,0.45)] drop-shadow-[0_1px_3px_rgba(26,36,33,0.22)]'
+            )}
+          >
             <SiteLogo priority tone="light" />
           </Link>
 
-          <div className="ml-auto hidden shrink-0 items-center gap-8 self-center md:flex">
+          <div
+            className={cn(
+              'ml-auto hidden shrink-0 items-center gap-8 self-center transition-all duration-300 md:flex',
+              minimal
+                ? 'pointer-events-none translate-y-1 opacity-0'
+                : 'pointer-events-auto translate-y-0 opacity-100'
+            )}
+            aria-hidden={minimal}
+          >
             <nav className="flex items-center gap-8">
               {links.map((link) =>
                 link.href === '/sobre-nosotros' ? (
@@ -86,6 +112,7 @@ export function Navbar() {
                   >
                     <Link
                       href={link.href}
+                      tabIndex={minimal ? -1 : undefined}
                       className={cn(
                         navLinkClass,
                         'gap-1',
@@ -156,6 +183,7 @@ export function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
+                    tabIndex={minimal ? -1 : undefined}
                     className={cn(
                       navLinkClass,
                       pathname === link.href
@@ -171,36 +199,39 @@ export function Navbar() {
 
             <ValoracionGratuitaModal
               triggerLabel="Valoración gratuita"
-              triggerClassName={cn(
-                'inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-sm px-4 py-2 text-xs font-light uppercase tracking-[0.12em] transition-colors duration-200',
-                transparent
-                  ? 'border border-white/70 text-white hover:bg-white hover:text-header'
-                  : 'border border-gold/80 bg-gold text-white hover:bg-gold-dark'
-              )}
+              triggerClassName="inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-sm border border-gold/80 bg-gold px-4 py-2 text-xs font-light uppercase tracking-[0.12em] text-white transition-colors duration-200 hover:bg-gold-dark"
             />
           </div>
 
           <button
-            className="ml-auto p-2 text-white transition-colors md:hidden"
+            type="button"
+            className={cn(
+              'ml-auto rounded-sm p-2 transition-colors md:hidden',
+              minimal && !lightOnMinimal
+                ? 'text-ink'
+                : 'text-white',
+              minimal && lightOnMinimal && 'drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)]'
+            )}
             onClick={() => setOpen(!open)}
             aria-label="Menu"
+            aria-expanded={open}
           >
             <div className="w-5 space-y-1.5">
               <span
                 className={cn(
-                  'block h-px bg-white transition-all duration-300',
+                  'block h-px bg-current transition-all duration-300',
                   open && 'translate-y-2 rotate-45'
                 )}
               />
               <span
                 className={cn(
-                  'block h-px bg-white transition-all duration-300',
+                  'block h-px bg-current transition-all duration-300',
                   open && 'opacity-0'
                 )}
               />
               <span
                 className={cn(
-                  'block h-px bg-white transition-all duration-300',
+                  'block h-px bg-current transition-all duration-300',
                   open && '-translate-y-2 -rotate-45'
                 )}
               />
