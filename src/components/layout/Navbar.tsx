@@ -70,7 +70,7 @@ export function Navbar() {
     >
       <div className="mx-auto max-w-7xl pl-5 pr-4 md:pl-12 md:pr-10">
         <div className={cn('flex w-full items-center', HEADER_HEIGHT_CLASS)}>
-          <Link href="/" className="relative z-10 flex shrink-0 items-center py-2 md:py-2.5">
+          <Link href="/" className="relative z-10 flex shrink-0 items-center">
             <SiteLogo priority tone="light" />
           </Link>
 
@@ -172,7 +172,7 @@ export function Navbar() {
             <ValoracionGratuitaModal
               triggerLabel="Valoración gratuita"
               triggerClassName={cn(
-                'inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-sm px-5 py-2.5 text-xs font-light uppercase tracking-[0.12em] transition-colors duration-200',
+                'inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-sm px-4 py-1.5 text-xs font-light uppercase tracking-[0.12em] transition-colors duration-200',
                 transparent
                   ? 'border border-white/70 text-white hover:bg-white hover:text-header'
                   : 'border border-gold/80 bg-gold text-white hover:bg-gold-dark'
