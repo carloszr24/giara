@@ -55,7 +55,7 @@ export default async function HomePage() {
           <HeroCarousel />
         </div>
 
-        <div className="relative z-10 flex w-full flex-1 items-center justify-center px-5 min-[400px]:px-6">
+        <div className="relative z-10 flex w-full flex-1 flex-col items-center justify-end px-5 min-[400px]:px-6 pb-24 md:pb-28">
           <div className="mx-auto w-full max-w-3xl text-center">
             <h1
               className="font-display text-balance text-[clamp(2.4rem,6vw+0.4rem,4.25rem)] font-medium leading-[1.08] text-white mb-6 animate-fade-up"
